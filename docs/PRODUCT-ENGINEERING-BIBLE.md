@@ -2,6 +2,10 @@
 
 > The single operating standard for planning, researching, designing, building, deploying, maintaining, and improving Nakib's digital products with AI assistance.
 
+## Mandatory companion
+
+For every public-facing or customer-facing project, also read and apply [`GROWTH-LAUNCH-AND-LIFECYCLE-STANDARD.md`](GROWTH-LAUNCH-AND-LIFECYCLE-STANDARD.md). It covers social-platform readiness, SEO and AI/LLM discoverability, analytics/pixels, AI-assisted metadata, admin parity, launch readiness, stack selection, post-launch monitoring, and lifecycle maintenance.
+
 ## 1. Purpose
 
 This document is the authoritative working standard for future product, website, software, SaaS, marketplace, media, directory, travel, publishing, commerce, internal-tool, and experimental projects.
@@ -78,1077 +82,706 @@ The goal is not "generate more code faster." The goal is "ship better systems wi
 
 Nakib is often the effective founder, product owner, UX reviewer, business operator, content owner, and final approver at the same time.
 
-Therefore the system must compensate for limited human bandwidth.
+The engineering system must therefore compensate for limited human bandwidth by using:
 
-Default behavior:
+- reusable components and data;
+- documented decisions;
+- automation where it genuinely saves time;
+- strong defaults;
+- minimal but intentional infrastructure;
+- progressive disclosure in product UX;
+- clear project priorities;
+- cost-aware deployment and maintenance;
+- reliable admin systems;
+- AI assistance that challenges weak assumptions instead of blindly agreeing.
 
-- automate repetitive checks;
-- reuse proven components and data;
-- document decisions close to the project;
-- avoid unnecessary infrastructure;
-- minimize operational surfaces;
-- batch safe changes;
-- prioritize projects that are live, strategically important, or income-generating;
-- avoid maintaining experiments that no longer justify their cost.
-
-A project should not require a large-team process merely because large companies use one. Use the smallest process that still protects quality, safety, and maintainability.
-
----
-
-## 4. Product discovery before implementation
-
-Do not start major implementation from a vague label alone.
-
-If the request is "build a newspaper," "build a travel platform," "build a SaaS," or similar, first establish the product model.
-
-### 4.1 Research before assumptions
-
-Before major work:
-
-1. inspect existing repositories, docs, data, deployed state, and prior decisions;
-2. identify the actual users and jobs-to-be-done;
-3. study current category leaders and established patterns;
-4. research current technology where it materially affects the decision;
-5. identify legal, platform, data, or operational constraints where relevant;
-6. identify what should **not** be built;
-7. challenge assumptions that are unsupported by evidence;
-8. define the smallest complete version worth operating.
-
-### 4.2 Ask questions only when they add value
-
-Do not repeatedly ask for information that can be recovered from:
-
-- repository history;
-- project docs;
-- deployed product behavior;
-- existing data;
-- prior decisions;
-- established industry conventions;
-- public research.
-
-For genuinely new product discovery, ask enough questions to remove material ambiguity. A small site may need only a few. A complex marketplace may require dozens. The number is not important; the quality of the resulting model is.
-
-### 4.3 AI must challenge weak ideas
-
-Do not treat every idea as good merely because the user proposed it.
-
-Evaluate:
-
-- user demand;
-- pain severity;
-- adoption friction;
-- operational burden;
-- cost;
-- data availability;
-- defensibility;
-- monetization;
-- technical risk;
-- maintenance burden;
-- existing alternatives.
-
-When an idea is weak, explain the reason and propose a stronger direction.
+Do not copy the bureaucracy of a large company. Copy the discipline: clear ownership, consistency, verification, rollback, maintainability, brand governance, and evidence-based decisions.
 
 ---
 
-## 5. Project-type intelligence
+## 4. Research before building
 
-Project categories have different user expectations. Do not apply one generic UI or information architecture everywhere.
+For any meaningful new project or major feature:
 
-### News / publication
+1. Define the real user problem.
+2. Identify the affected users and operational users.
+3. Research current category leaders and relevant competitors.
+4. Identify common category patterns and expected user behavior.
+5. Identify what competitors do well.
+6. Identify recurring complaints, friction, or weaknesses.
+7. Challenge the proposed idea against market reality, cost, complexity, and actual user need.
+8. Decide what should not be built.
+9. Select the smallest complete solution that can create real value.
+10. Record the assumptions that still need validation.
 
-Expect:
+AI must not praise every idea automatically. If an idea is weak, overbuilt, expensive, hard to maintain, unlikely to be used, or already solved well by an existing tool, say so clearly and propose a better path.
 
-- editorial hierarchy;
-- sections/topics;
-- article lifecycle;
-- author/editor attribution;
-- rich article rendering;
-- image captions and credits;
-- search/archive;
-- related stories;
-- corrections/update metadata;
-- SEO/schema;
-- ad/newsletter placements where relevant;
-- editorial admin flow.
+---
 
-### Corporate/company website
+## 5. Product-type intelligence
 
-Expect:
+Do not reuse one generic UI or architecture for unrelated product categories.
 
-- immediate value proposition;
-- capabilities/services;
-- proof/trust;
-- company/about;
-- relevant work/projects;
-- contact/lead flow;
-- careers only when needed;
-- fast loading;
-- clear mobile navigation;
-- concise content.
+A news publication, SaaS dashboard, travel platform, marketplace, corporate website, directory, learning platform, media marketplace, and e-commerce system have different user expectations, information architecture, data models, admin workflows, trust signals, and content density.
 
-### Travel platform
-
-Expect:
-
-- search/discovery;
-- destination/product hierarchy;
-- dates/passenger inputs when relevant;
-- clear price/policy information;
-- booking or lead lifecycle;
-- account/history where useful;
-- supplier/admin operations;
-- support;
-- SEO landing pages;
-- integration-ready services.
-
-### Directory
-
-Expect:
-
-- structured taxonomy/location data;
-- search/filter;
-- listing detail;
-- map/contact/hours;
-- media;
-- claim/owner flow where useful;
-- moderation;
-- duplicate detection;
-- featured/ads where relevant;
-- SEO/PSEO;
-- compact contributor/admin workflows.
-
-### E-commerce / catalog
-
-Expect:
-
-- category/product/variant hierarchy;
-- media;
-- price/inventory;
-- inquiry/cart/checkout;
-- customer/order flow;
-- payments where applicable;
-- fulfillment/status;
-- search/filter;
-- admin operations.
-
-### Marketplace
-
-Expect:
-
-- two-sided roles;
-- onboarding;
-- listings;
-- discovery;
-- transaction/inquiry lifecycle;
-- moderation/trust;
-- commissions/payouts when relevant;
-- disputes/support where needed;
-- notifications;
-- operational admin.
-
-### SaaS / internal product
-
-Expect:
-
-- authenticated shell;
-- role/organization model;
-- settings;
-- task-focused dashboards;
-- keyboard/accessibility quality;
-- audit-sensitive actions;
-- observability;
-- system/light/dark theme when appropriate;
-- secure APIs.
+When the project type is known, infer the common category expectations before asking basic questions. Ask only questions that materially affect the product, architecture, brand, or business rules.
 
 ---
 
 ## 6. Language policy
 
-### 6.1 Default product language
+Default final-product language: **simple, clear English**.
 
-Default final product language is **English** unless the product has a clear audience reason to require another language.
+Use language that a user with moderate English can understand. Avoid unnecessary jargon, inflated vocabulary, academic wording, and AI-sounding marketing phrases.
 
-Use simple, direct English that people with modest English proficiency can understand.
+Localization must earn its complexity.
 
-Prefer:
+Use Bangla or other languages when they materially improve comprehension, adoption, task completion, or market reach for the target audience. Examples may include mass-market daily tools, local public-service utilities, education/content products, or other products whose real users benefit from localization.
 
-- short sentences;
-- familiar words;
-- clear labels;
-- concrete verbs;
-- visible next actions.
+Do not add multilingual infrastructure merely because localization is technically possible.
 
-Avoid unnecessary jargon, corporate filler, complicated vocabulary, and decorative sophistication.
-
-### 6.2 When localization is justified
-
-Localization should solve a real user problem.
-
-Consider Bangla or multilingual support when the product serves:
-
-- mass-market daily-use utilities;
-- public-service use cases;
-- users whose task completion materially improves in Bangla;
-- content products where Bangla is itself the content value.
-
-Do not add multilingual complexity by default.
-
-### 6.3 Internal technical documentation
-
-Engineering docs, schemas, API naming, code comments, architecture records, and AI-agent standards should remain English-first.
+Repository documentation, technical naming, architecture records, prompts, API contracts, and engineering standards should normally remain in English.
 
 ---
 
-## 7. Human-first content standard
+## 7. Brand governance
 
-### 7.1 No obvious AI voice
+Every project should have a canonical brand system before repeated visual production.
 
-Reject generic copy such as:
+Record as applicable:
 
-- "AI-powered solution";
-- "revolutionary platform";
-- "next-generation experience";
-- "seamlessly transform";
-- repetitive feature explanations;
-- tutorial-style narration on ordinary product pages.
-
-Technology should be mentioned only when it helps the user make a decision.
-
-### 7.2 Public interfaces should not be text dumps
-
-Use the right mix of:
-
-- concise copy;
-- images;
-- icons;
-- illustrations;
-- cards;
-- tables;
-- diagrams;
-- metadata;
-- interaction.
-
-Content-heavy products are allowed to be reading-heavy where reading is the core purpose. Ordinary product surfaces should not look like documentation.
-
-### 7.3 Never invent proof
-
-Do not fabricate:
-
-- clients;
-- metrics;
-- revenue;
-- certifications;
-- partners;
-- team members;
-- export markets;
-- testimonials;
-- ratings;
-- capacities;
-- statistics;
-- calculations.
-
-Every factual claim should have a real source or be clearly marked as an estimate when estimation is legitimate.
-
----
-
-## 8. Brand governance
-
-Brand consistency is a hard requirement.
-
-For every project maintain canonical brand assets and rules:
-
-- primary logo;
-- symbol/mark;
-- wordmark;
-- approved variants;
-- colors;
+- official logo and wordmark;
+- approved logo variants;
+- brand colors and semantic color roles;
 - typography;
-- spacing behavior;
 - icon style;
-- image direction;
+- illustration direction;
+- photography direction;
 - tone of voice;
-- prohibited transformations.
+- spacing/layout principles;
+- social/profile/OG asset rules;
+- forbidden treatments.
 
-### 8.1 AI must not mutate the brand casually
+AI must not casually redraw, approximate, replace, distort, recolor, or reinterpret an official logo.
 
-Do not:
+When generating images, presentations, posters, social assets, or UI, preserve the project's actual identity rather than inventing a new one per session.
 
-- redraw a logo without explicit instruction;
-- change colors arbitrarily;
-- replace a brand mark with an AI approximation;
-- alter the project tone from one page to another;
-- generate inconsistent brand visuals;
-- introduce a second design language mid-project.
-
-When generating imagery, preserve brand context and use the official logo asset where required instead of regenerating it.
-
-### 8.2 Brand assets are data, not decoration
-
-Keep reusable brand assets in stable locations with explicit ownership and references so they are not copied inconsistently across pages.
+Brand consistency is a system, not a one-time logo choice.
 
 ---
 
-## 9. UI, UX, and CX standard
+## 8. Human-first UX and CX
 
-### 9.1 Design each product for its actual users
+Design for real people completing tasks, not for demonstrating features.
 
-Do not reuse dashboard patterns for editorial pages, marketing pages for admin tools, or marketplace patterns for company websites merely because components already exist.
+Public UX, logged-in UX, and admin/operations UX may share a design system but should optimize for different jobs.
 
-Shared primitives are reusable; experience design is contextual.
+Public surfaces prioritize comprehension, trust, discovery, conversion, reading, browsing, and task completion.
 
-### 9.2 Design-system foundation
+Admin surfaces prioritize speed, accuracy, state visibility, filtering, editing, moderation, operations, and safe control.
 
-Establish:
+Avoid tutorial-heavy interfaces. The interface should explain itself through good labels, hierarchy, progressive disclosure, contextual help, clear feedback, and familiar interaction patterns.
+
+Do not expose all possible data fields at once merely because the database contains them.
+
+Use progressive disclosure:
+
+```text
+minimum necessary information
+→ next relevant step
+→ optional enrichment
+→ advanced configuration
+```
+
+---
+
+## 9. Frontend standard
+
+Frontend must be coherent across pages, states, and breakpoints.
+
+Establish reusable tokens and components before multiplying pages:
 
 - typography scale;
 - spacing scale;
 - color roles;
-- radii;
-- borders/shadows;
-- containers;
-- breakpoints;
+- radii/borders/shadows;
+- containers and breakpoints;
 - buttons;
-- inputs;
+- forms;
 - cards;
-- tables;
-- badges;
+- tables/lists;
+- badges/statuses;
 - tabs;
 - dialogs/drawers;
-- toasts;
-- loading/skeleton states;
-- empty/error/success states;
-- image/media ratios;
-- focus/hover/disabled states.
+- toasts/notices;
+- skeleton/loading states;
+- empty states;
+- error states;
+- pagination/search/filter patterns;
+- image/media ratios.
 
-Do not improvise these page by page.
+Reject random spacing, broken alignment, inconsistent controls, clipped text, overflow, repeated careless imagery, broken logos, missing assets, awkward mobile stacking, and unfinished placeholder sections.
 
-### 9.3 Responsive means complete
+Use relevant photography, icons, illustrations, diagrams, and subtle motion where they improve comprehension or perceived quality. Do not use them as meaningless decoration quotas.
 
-Every important feature must remain complete across:
+Respect reduced-motion preferences and performance constraints.
+
+---
+
+## 10. Responsive standard
+
+Responsive does not mean "desktop shrunk until it fits."
+
+Design intentionally for:
 
 - small phones;
 - common phones;
 - large phones;
 - tablets;
 - small laptops;
-- desktops;
-- wide screens;
+- standard desktops;
+- wide desktops;
 - landscape edge cases.
 
-No viewport should receive a broken, clipped, incomplete, or materially degraded experience.
+All important features must remain complete across device classes.
 
-### 9.4 Mobile is intentionally designed
+Mobile navigation should be purpose-built. Mobile footers may be collapsible or condensed. Desktop navigation/footer may expose more information where appropriate.
 
-Mobile is not desktop compressed.
-
-Use purpose-built patterns such as:
-
-- drawers;
-- bottom actions;
-- stacked layouts;
-- condensed navigation;
-- progressive forms;
-- collapsible footer groups;
-- context-aware controls.
-
-### 9.5 Progressive disclosure
-
-Do not request all data at once merely because the database supports it.
-
-Collect information in sensible steps:
-
-```text
-minimum required
-→ next useful data
-→ optional enrichment
-→ advanced detail
-```
-
-This applies to onboarding, listings, customer profiles, forms, checkouts, admin workflows, and submissions.
-
-### 9.6 Public vs admin experience
-
-Public UX optimizes for:
-
-- comprehension;
-- trust;
-- discovery;
-- conversion;
-- reading;
-- low friction.
-
-Admin UX optimizes for:
-
-- task completion;
-- correctness;
-- operational speed;
-- status clarity;
-- safe editing;
-- bulk work where useful;
-- auditability.
-
-Do not make admin screens decorative at the expense of efficiency.
+Do not accept "works on my device" as QA.
 
 ---
 
-## 10. Information architecture and contextual ownership
+## 11. Content standard
 
-Things should live where users expect them.
+Avoid obvious AI-generated copy, filler sections, repeated tutorials, fake enthusiasm, generic "AI-powered / seamless / revolutionary" wording, or unnecessary text density.
 
-Examples:
+Public copy should be:
 
-- product media belongs in product management;
-- blog media belongs in article management;
-- category media belongs in category management;
-- customer documents belong in customer/account workflows;
-- order actions belong in order workflows.
+- specific;
+- concise;
+- human-sounding;
+- useful;
+- appropriate to the industry;
+- factually grounded.
 
-A central media library may exist as infrastructure, but it must not force users to leave the relevant workflow for ordinary editing.
+Do not invent customers, partners, certifications, facilities, capacity, revenue, statistics, awards, testimonials, quotes, pricing, or business claims.
 
-Avoid scattered admin architecture where one task requires visiting several unrelated screens.
+For long-form editorial content, use the dedicated blog/article authoring standard.
 
 ---
 
-## 11. Rich publishing standard
+## 12. Blog and article systems
 
-Blog/article systems should not default to a flat textarea.
+A serious publishing system should not be limited to a flat textarea.
 
-Support the content model appropriate to the product, including where useful:
+Support rich structured writing as appropriate, including:
 
-- H2/H3/H4 hierarchy;
-- bold/italic;
-- links;
+- headings;
+- emphasis;
 - lists;
-- block quotes;
+- links;
+- blockquotes;
 - code blocks;
 - tables;
-- callouts;
 - images;
-- galleries;
-- captions;
-- credits;
-- embeds;
-- reusable blocks/data;
-- references;
-- SEO fields;
-- preview;
-- draft/review/publish states.
+- captions/credits;
+- galleries/embeds where justified;
+- reusable content blocks;
+- HTML or Markdown rendering where appropriate.
 
-Prefer structured blocks and/or Markdown source where portability matters. Sanitize HTML. Keep presentation separate from canonical content data where practical.
+Prefer structured content or portable source formats when future reuse matters.
+
+Article media belongs in the article workflow. Category media belongs with category management. Related controls should not be scattered arbitrarily across unrelated admin screens.
 
 ---
 
-## 12. Reusable data principle
+## 13. Reusable data principle
 
-If information already exists in a canonical form, reuse it.
+If information already exists in a reliable canonical form, reuse it.
 
 Examples:
 
-- company details;
+- company identity;
+- contact information;
 - addresses;
-- social links;
-- team/author records;
+- authors;
 - media credits;
-- categories;
-- location hierarchy;
-- legal text;
-- CTA blocks;
-- contact data;
-- product metadata;
-- brand settings.
+- categories/taxonomy;
+- geographic data;
+- CTAs;
+- disclaimers;
+- standard product attributes;
+- SEO defaults;
+- social links;
+- brand assets.
 
-Do not ask the user to repeatedly provide the same information or duplicate it across files unless there is a valid ownership reason.
+Do not repeatedly ask the user to re-enter or re-explain known project facts.
 
----
-
-## 13. Frontend engineering standard
-
-Reject:
-
-- broken layout;
-- random gaps;
-- mismatched control sizes;
-- inconsistent cards;
-- arbitrary radius changes;
-- unexplained typography shifts;
-- clipped text;
-- overflow;
-- missing icons;
-- broken images;
-- missing logos;
-- inconsistent image ratios;
-- unnecessary repeated imagery;
-- layout jumps;
-- unfinished placeholders;
-- dead controls;
-- fake buttons;
-- different behavior for equivalent components.
-
-Use shared primitives and documented variants.
-
-Frontend quality includes perceived speed, stability, accessibility, and visual clarity—not only appearance.
+Avoid duplicate sources of truth.
 
 ---
 
-## 14. Backend engineering standard
+## 14. Backend standard
 
-Backend design starts with real business workflow, not database tables.
+Backend architecture starts from the business workflow, not from convenient tables.
 
 Define:
 
-- actors;
-- roles;
-- permissions;
+- actors/roles;
 - ownership;
+- permissions;
 - lifecycle/status transitions;
 - approval/review states;
 - validation;
 - notifications;
 - retries/background work;
 - archive/delete rules;
-- failure and recovery paths;
+- failure/recovery behavior;
 - audit-sensitive actions.
 
-Do not create backend features that have no operational control surface when an admin/operator needs one.
+Business rules must be enforced server-side where trust matters.
 
 ---
 
 ## 15. API standard
 
-APIs are durable product interfaces.
+APIs are reusable product interfaces, not temporary glue.
 
-Use:
+Use predictable resources, validation, authentication/authorization, pagination, safe errors, stable response shapes, idempotency where needed, rate limits where justified, and tracing/log correlation where useful.
 
-- predictable resource naming;
-- schema validation;
-- stable response shapes;
-- proper status codes;
-- server-side authorization;
-- pagination;
-- rate limits where needed;
-- idempotency for risky duplicate actions;
-- safe errors;
-- tracing/log correlation where useful;
-- versioning when external/public stability requires it.
-
-Keep business logic reusable so web, mobile, plugins, automations, and partner integrations do not need separate implementations.
+Design reusable services so web, mobile, plugins, automations, partner systems, and internal tools can share business logic instead of duplicating it.
 
 ---
 
 ## 16. Database standard
 
-Before adding persistent data, define:
+Before creating persistent data, define:
 
 - ownership;
 - relationships;
 - required/optional fields;
 - uniqueness;
-- indexes;
-- lifecycle;
+- indexes and first queries;
+- lifecycle/status;
 - timestamps;
 - audit needs;
-- retention/privacy needs;
+- retention/privacy;
 - archive/delete behavior;
-- query patterns;
-- migration implications.
+- migration/recovery implications.
 
-Use migrations consistently. Verify migrations in the intended environment. Never assume code presence means migration success.
+Use migrations consistently and verify the intended environment actually applied them.
 
-Do not store large media blobs in relational databases when object storage is appropriate.
+Do not store large media blobs in relational databases when object storage is more appropriate.
+
+Never display decorative or fabricated metrics. Calculations need correct source data, formulas, units, and rounding.
 
 ---
 
 ## 17. Media and asset reliability
 
-Media is part of the product lifecycle.
+Media workflows must cover upload, validation, storage, retrieval, editing/replacement, rendering, failure states, and deployed behavior.
 
-A media-enabled feature is incomplete until these work:
+Use stable paths/object keys, intentional ratios, valid MIME/size controls, fallbacks, correct public/private access, and durable URLs.
 
-- upload;
-- validation;
-- storage;
-- retrieval;
-- rendering;
-- replacement/editing;
-- deletion/archive policy;
-- missing-file fallback;
-- permissions;
-- deployed environment behavior.
-
-Use stable object keys/URLs. Avoid temporary preview URLs in durable content. Validate favicon, logo, OG images, and social assets.
+Do not allow temporary preview URLs, missing logos, broken favicons, orphaned media, or inconsistent object references to become permanent product behavior.
 
 ---
 
-## 18. Architecture and technology selection
+## 18. Accessibility
 
-Do not force one stack onto every project.
+Accessibility is part of quality.
 
-### Cloudflare-first profile
-
-Use when the workload fits edge/serverless constraints.
-
-Typical choices may include:
-
-- TypeScript;
-- React / Next.js where appropriate;
-- Cloudflare Workers;
-- D1 + Drizzle;
-- R2;
-- KV;
-- Queues;
-- Workflows;
-- Durable Objects;
-- Turnstile/WAF/rate limiting.
-
-### Hybrid profile
-
-Use Cloudflare for delivery/API where useful while using external PostgreSQL/MySQL/search/payment/other specialized services when they are the better fit.
-
-### Traditional/server-hosted profile
-
-Keep or choose server-hosted architecture for workloads that require it, including some legacy PHP/Laravel, specialized binaries, long-running processes, or infrastructure where migration value does not justify cost.
-
-### Technology change rule
-
-Do not adopt technology because it is new.
-
-Adopt it when it improves one or more of:
-
-- reliability;
-- user experience;
-- capability;
-- maintainability;
-- performance;
-- security;
-- cost;
-- developer efficiency.
-
----
-
-## 19. Dependency hygiene
-
-The goal is **safely current**, not blindly latest.
-
-For dependency changes:
-
-- review changelogs where material;
-- prioritize security updates;
-- run relevant lint/type/test/build checks;
-- inspect framework/runtime compatibility;
-- handle major upgrades deliberately;
-- avoid speculative upgrade churn;
-- document deferred risky upgrades.
-
----
-
-## 20. Performance standard
-
-Performance is part of product quality from day one.
-
-Evaluate:
-
-- unnecessary JavaScript;
-- server/client boundaries;
-- bundle size;
-- image formats/sizes;
-- font loading;
-- caching;
-- repeated API calls;
-- query shape;
-- pagination;
-- lazy loading;
-- third-party scripts;
-- rendering cost;
-- Worker/runtime usage.
-
-A visually strong product that loads poorly is not finished.
-
----
-
-## 21. Accessibility standard
-
-Accessibility is a baseline quality requirement, not a later add-on.
-
-Check where applicable:
+Evaluate as applicable:
 
 - semantic HTML;
 - keyboard navigation;
-- focus visibility;
-- labels;
+- visible focus;
+- form labels/instructions;
 - contrast;
+- touch target size;
 - alt text;
-- dialog behavior;
+- error identification;
 - screen-reader meaning;
-- motion sensitivity;
-- form errors;
-- touch target size.
+- reduced motion;
+- heading structure;
+- accessible dialogs/menus.
 
-Do not sacrifice accessibility for visual novelty.
+Do not postpone obvious accessibility problems to an undefined "later."
 
 ---
 
-## 22. Security and privacy standard
+## 19. Security and privacy
 
-Default principles:
+Apply least privilege and data minimization.
 
-- least privilege;
+Rules include:
+
+- never expose secrets;
 - server-side authorization;
-- secrets outside source control;
-- input validation;
-- output encoding;
-- safe file handling;
-- rate limiting where useful;
-- CSRF/CORS/CSP consideration as applicable;
-- session/token lifecycle care;
-- minimal personal-data collection;
-- retention rules;
-- auditability for sensitive actions;
-- safe error responses.
-
-Do not collect data merely because it might be useful someday.
+- validate untrusted input;
+- safe upload handling;
+- rate limit public abuse surfaces when justified;
+- secure session/auth behavior;
+- audit sensitive actions where appropriate;
+- collect only data that has a use;
+- document retention/privacy needs;
+- avoid leaking private/internal metadata through public APIs.
 
 ---
 
-## 23. Observability and runtime QA
+## 20. Performance
 
-A product should be diagnosable.
+Performance is a product requirement.
 
-Use appropriate:
+Evaluate JavaScript weight, rendering boundaries, images, fonts, caching, query shapes, pagination, API payloads, repeated requests, third-party scripts, media delivery, and expensive client work.
 
-- structured logs;
-- health/readiness endpoints;
-- trace/correlation IDs;
-- deployment logs;
-- error monitoring;
-- audit logs;
-- usage/cost dashboards.
-
-### Browser console is part of QA
-
-Inspect for:
-
-- runtime errors;
-- hydration errors;
-- failed requests;
-- 404/500 responses;
-- broken images/fonts;
-- CORS/CSP failures;
-- preload warnings;
-- duplicate requests;
-- infinite loops;
-- deprecated APIs;
-- Worker/runtime warnings;
-- env/config mismatches.
-
-Known harmless warnings should be documented so they are not repeatedly rediscovered.
+A visually polished product that loads poorly is unfinished.
 
 ---
 
-## 24. Search and discoverability standard
+## 21. Search and discoverability
 
-Do not think only about Google.
+Do not think only about one search engine.
 
-Build standards-based discoverability that works across relevant search ecosystems.
+Use standards-based discoverability:
 
-Check:
-
-- crawlability;
-- robots;
-- sitemap;
+- crawlability/indexability;
 - canonical URLs;
-- metadata;
-- OG/social cards;
-- structured data;
+- sitemap;
+- robots rules;
+- semantic HTML;
+- structured data where appropriate;
+- useful metadata;
 - internal linking;
-- duplicate content;
-- thin pages;
-- pagination;
-- language handling;
-- page speed;
-- indexability.
+- content quality;
+- duplicate/thin-content control;
+- pagination/archive behavior;
+- performance;
+- language/locale handling.
 
-Consider Google, Bing, and other relevant engines/platform discovery surfaces based on audience.
+Google may be the primary search engine, but Bing and relevant ecosystem-specific discovery surfaces should be considered where they matter.
 
-Do not use fake SEO pages or keyword stuffing.
+Do not use manipulative SEO tactics or fabricate content for indexing.
 
 ---
 
-## 25. Analytics and product feedback
+## 22. Analytics and observability
 
-Measure what helps decisions.
-
-Prefer meaningful events over vanity metrics.
+Measure useful product events rather than vanity metrics.
 
 Examples:
 
-- completed signup;
-- inquiry submitted;
-- listing published;
-- checkout completed;
-- search with zero results;
+- successful inquiry;
+- registration completion;
+- listing publication;
+- booking request;
+- completed upload;
 - failed upload;
-- moderation turnaround;
-- content conversion.
+- zero-result search;
+- payment failure;
+- moderation action.
 
-Analytics should not create unnecessary privacy risk or cost.
+Use logs, health/readiness checks, diagnostics, and error visibility appropriate to the project.
 
----
-
-## 26. Cost discipline
-
-Time, tokens, builds, storage, APIs, CI, and infrastructure all cost money.
-
-Treat waste as an engineering problem.
-
-Default rules:
-
-- batch related changes before deployment;
-- avoid unnecessary preview builds;
-- avoid duplicate scheduled tasks;
-- cap automated discovery/import jobs;
-- control AI/API usage;
-- remove stale artifacts when safe;
-- prefer reusable data/components;
-- choose infrastructure proportionate to actual needs;
-- monitor Worker, database, storage, and CI use;
-- do not keep expensive experiments running without purpose.
-
-Do not make destructive cleanup changes without dependency mapping and explicit approval.
+Do not run blind production systems where important failures cannot be detected.
 
 ---
 
-## 27. Repository and portfolio governance
+## 23. Browser-console and runtime QA
 
-Each repository should have a registry record with:
+Visual appearance is not enough.
 
-- project name;
+Check for:
+
+- console errors;
+- hydration errors;
+- failed network requests;
+- 404/500 responses;
+- image/font failures;
+- CORS/CSP problems;
+- duplicate requests;
+- infinite loops;
+- deprecated/runtime warnings;
+- asset preload problems;
+- configuration/environment mismatches.
+
+If a known harmless warning must remain, document it so future work does not repeatedly rediscover it.
+
+---
+
+## 24. Technology and stack policy
+
+Do not force one stack onto every project.
+
+Before implementation, evaluate workload needs and choose a documented profile.
+
+Cloudflare-first is preferred when the workload fits technically and economically. Typical tools may include Workers, D1/Drizzle, R2, KV, Queues, Workflows, Durable Objects, Turnstile, WAF/rate limits, and observability.
+
+Use Cloudflare plus external managed services when D1/Workers are not the right fit.
+
+Use VPS/server-hosted or traditional architecture when long-running workloads, native binaries, legacy systems, database ecosystem needs, or operational requirements justify it.
+
+Do not migrate or adopt technology for fashion.
+
+New technology should be adopted when it materially improves reliability, capability, security, UX, maintainability, or cost.
+
+Keep active dependencies safely current and review meaningful framework/runtime/security changes.
+
+---
+
+## 25. AI feature policy
+
+AI is a tool, not a product requirement.
+
+Use AI where it creates measurable value, such as:
+
+- metadata suggestions;
+- content assistance;
+- classification/tagging;
+- duplicate detection;
+- moderation assistance;
+- search/retrieval;
+- workflow automation;
+- operational summarization.
+
+Do not add AI merely to label a project "AI-powered."
+
+AI-generated content or metadata must remain fact-safe and editable.
+
+---
+
+## 26. Admin systems
+
+Admin is a first-class product surface.
+
+A public product is incomplete if operations require developers for ordinary business tasks that should be manageable in the admin system.
+
+Admin should be coherent, responsive, searchable, contextual, role-aware, and safe.
+
+Include loading, empty, error, success, validation, permission, and confirmation states.
+
+Use bulk tools only when they reduce real operational work without increasing risk.
+
+---
+
+## 27. Cost discipline
+
+Treat all of these as costs:
+
+- human time;
+- AI tokens;
+- CI minutes;
+- deployments;
+- Worker usage;
+- database operations;
+- object storage;
+- external APIs;
+- email delivery;
+- analytics/logging;
+- repeated research;
+- unnecessary infrastructure.
+
+Batch related changes when safe. Avoid repeated deploy loops caused by predictable cleanup.
+
+Do not keep unused experiments, schedules, preview infrastructure, or duplicate services running indefinitely.
+
+Destructive cleanup still requires dependency mapping and explicit approval.
+
+---
+
+## 28. Repository governance
+
+Every meaningful repository should have a registry record containing:
+
 - purpose;
 - status;
 - canonical branch;
-- production URL;
-- preview URL;
+- production/preview URLs;
 - framework/runtime;
 - package manager;
 - deployment target;
 - database;
 - storage;
 - auth;
-- email/notification provider;
-- binding/secret names (never values);
+- notifications/email;
+- important binding names;
 - migration location/state;
-- known issues;
-- technical debt;
-- cost concerns;
+- known technical debt;
+- brand source;
+- analytics/SEO status where relevant;
+- owner;
 - last verified date;
 - next review date.
 
-Classify projects as appropriate:
-
-- active;
-- paused;
-- experimental;
-- legacy;
-- archive candidate.
-
-Do not assume `main` is the active implementation branch.
-
-Exclude unrelated colleague/client projects from Nakib's core portfolio unless explicitly included.
+Do not assume the default Git branch is the actual deployed or canonical implementation branch.
 
 ---
 
-## 28. Documentation and decision records
+## 29. Decision records
 
-Important decisions should survive the conversation that created them.
+Important choices must survive chat history.
 
-Use concise project documentation for:
+Record major decisions such as:
 
-- architecture decisions;
-- deployment steps;
-- environment requirements;
-- migrations;
-- operational runbooks;
-- known warnings;
-- known technical debt;
-- rollback notes;
-- reusable data ownership;
-- brand rules.
+- stack selection;
+- database choice;
+- deployment model;
+- canonical brand rules;
+- lifecycle/state model;
+- auth model;
+- important third-party providers;
+- architectural exceptions;
+- intentionally rejected features.
 
-For consequential architecture changes, record why the decision was made and what alternatives were rejected.
+Include why the decision was made so a future AI agent does not reverse it casually.
 
 ---
 
-## 29. Release and deployment discipline
+## 30. Build and release workflow
 
-Default flow:
+Default sequence:
 
 ```text
-inspect current reality
-→ research if needed
-→ define scope
-→ implement complete vertical slice
-→ lint/type/test/build
-→ verify migrations/bindings
-→ responsive/console QA
-→ preview
-→ realistic smoke test
-→ fix regressions
-→ controlled production deploy
-→ production smoke test
-→ record result
+1. Inspect repository and deployed reality
+2. Read project registry/decisions
+3. Research current category/technology where relevant
+4. Challenge assumptions
+5. Define users, flows, data, permissions and success criteria
+6. Confirm brand/design system
+7. Select/document stack
+8. Define data model and API contracts
+9. Implement one complete vertical slice
+10. Include operational/admin control
+11. Verify states, responsive behavior and accessibility
+12. Run lint/type/tests/build
+13. Verify migrations/bindings/storage
+14. Preview
+15. Test realistic flow with realistic data
+16. Inspect browser console/runtime
+17. Fix regressions
+18. Controlled production deployment
+19. Production smoke test
+20. Record evidence and remaining risks
 ```
-
-Do not deploy for every trivial edit when batching is safe.
-
-Do not declare success merely because CI is green.
-
----
-
-## 30. Incident, rollback, and recovery
-
-For production-sensitive work, know how to recover.
-
-Where appropriate maintain:
-
-- rollback path;
-- database recovery plan;
-- migration safety notes;
-- feature disable path;
-- storage cleanup/recovery procedure;
-- previous secret/token rotation plan;
-- incident notes.
-
-Destructive schema or storage operations should be dry-run/review-first whenever possible.
 
 ---
 
 ## 31. Definition of done
 
-A feature is done only when the applicable parts are true:
+A task or feature is done only when the applicable complete flow is verified.
 
-- business purpose is clear;
-- UX is coherent;
-- branding is correct;
-- copy is human and concise;
-- desktop/mobile/tablet work;
-- accessibility basics pass;
-- loading/empty/error/success states exist;
-- backend behavior is complete;
-- permissions are correct;
-- API validation works;
-- database read/write works;
-- migrations are applied;
-- media works;
-- admin workflow works;
-- analytics/logging exist where useful;
-- console/runtime is clean enough;
-- SEO/discoverability is correct where relevant;
-- tests/build checks pass;
-- preview is verified;
-- production is verified when deployed;
-- no obvious regression remains;
-- docs are updated if operational knowledge changed.
+Depending on the feature, verify:
+
+- business requirement;
+- UX coherence;
+- visual consistency;
+- responsive behavior;
+- accessibility;
+- human-quality content;
+- frontend/backend agreement;
+- API validation/auth;
+- database behavior;
+- migrations;
+- media;
+- admin operations;
+- permissions;
+- loading/empty/error/success states;
+- console/runtime health;
+- SEO/discoverability impact;
+- analytics/observability when needed;
+- performance;
+- preview behavior;
+- production behavior when deployed;
+- no known regression.
+
+A green build alone is not the definition of done.
 
 ---
 
 ## 32. Regression prevention
 
-Prefer systems that prevent repeat mistakes.
+Prefer prevention over repair through appropriate use of:
 
-Use as appropriate:
-
-- strict TypeScript;
-- linting/formatting;
+- strict types;
+- lint/format rules;
 - schema validation;
 - unit tests;
 - integration tests;
 - end-to-end tests;
-- visual regression;
+- visual regression tests;
 - responsive QA;
 - accessibility checks;
-- asset/link validation;
-- migration checks;
-- health endpoints;
+- migration verification;
+- asset/link checks;
+- health/readiness endpoints;
 - preview environments;
-- smoke tests;
+- production smoke tests;
 - observability;
-- rollback plans.
+- rollback/recovery plans.
 
-The same preventable bug should not need to be solved twice.
-
----
-
-## 33. Maintenance cadence
-
-### Weekly
-
-For active/high-value products:
-
-- production failures;
-- broken critical flows;
-- security issues;
-- major cost anomalies;
-- broken media/assets;
-- recent CI/deployment failures.
-
-### Monthly
-
-For active/important products:
-
-- dependency health;
-- framework/runtime/security changes;
-- migrations;
-- integrations;
-- console warnings;
-- responsive regressions;
-- SEO/indexability;
-- documentation drift;
-- infrastructure/API/storage cost;
-- category/industry pattern changes where material.
-
-### Quarterly
-
-Portfolio-wide:
-
-- classification;
-- duplicate/obsolete repositories;
-- technical debt;
-- archive/migration decisions;
-- reusable components/data;
-- stack rationalization;
-- income potential;
-- maintenance burden.
+Do not repeatedly solve the same preventable problem.
 
 ---
 
-## 34. AI-agent behavior
+## 33. Incident and rollback discipline
 
-AI working on these projects must:
+For production-sensitive changes, know how to recover before deploying.
 
-- inspect before changing;
+Consider:
+
+- rollback path;
+- database recovery;
+- migration reversal or forward-fix strategy;
+- storage/data repair;
+- feature disable/flag path;
+- previous working artifact/version;
+- monitoring after release.
+
+Do not improvise recovery only after users are affected.
+
+---
+
+## 34. Maintenance cadence
+
+Prioritize by strategic value.
+
+Typical model:
+
+- weekly: critical production/security/cost/user-flow problems for important live products;
+- monthly: active product dependencies, integrations, migrations, assets, responsive/console issues, SEO/indexability, cost drift and meaningful technology changes;
+- quarterly: full portfolio classification, duplicate/legacy cleanup decisions, stack health, technical debt, reuse opportunities and archive/migrate decisions.
+
+Do not perform pointless updates simply because a schedule exists.
+
+---
+
+## 35. AI-agent contract
+
+AI should act like a senior product-engineering partner.
+
+Before changing a project:
+
+- inspect before assuming;
+- read canonical project decisions;
 - reuse before recreating;
 - research before guessing;
-- challenge unsupported assumptions;
-- preserve brand assets;
-- preserve canonical data;
-- minimize unnecessary questions;
-- avoid generic AI copy;
-- think across frontend/backend/API/database/admin/media/deployment together;
-- anticipate responsive and state behavior;
-- check console/runtime where possible;
-- consider cost;
-- avoid repeated work;
-- verify before declaring completion;
-- disclose blockers honestly;
-- never invent unknown business facts.
+- challenge weak assumptions;
+- preserve brand;
+- choose technology by fit;
+- think end-to-end;
+- consider public and admin operations;
+- consider responsive/accessibility/security/performance;
+- verify before declaring done;
+- protect time and cost.
 
-AI should behave like a disciplined senior product, design, engineering, QA, and operations partner operating under a shared standard.
+Do not repeatedly ask for decisions already answered by this Bible or the project's canonical records.
 
 ---
 
-## 35. Final principle
+## 36. Final operating principle
 
-The operating standard is:
+Use AI to achieve the discipline and completeness of a strong product team while preserving the speed and simplicity required by a solo operator.
 
-> **Research deeply. Decide deliberately. Build coherently. Design for humans. Reuse what already exists. Keep the brand stable. Verify every layer. Spend carefully. Document what matters. Maintain what earns its place.**
+The target is:
 
-The target is not perfection by promise. The target is a system that makes high-quality first-pass work normal, prevents avoidable regressions, protects limited time and money, and continuously improves the portfolio without repeatedly relearning the same lessons.
+> **Research deeply. Decide deliberately. Build coherently. Design for humans. Preserve the brand. Reuse what exists. Verify every layer. Spend carefully. Document what matters. Maintain only what earns its place.**
