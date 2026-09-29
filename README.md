@@ -4,6 +4,10 @@
 
 DeveloperB helps founders, clients, team members, and developers turn a real-world problem into a clear decision, useful documentation, a project blueprint, and a verified path to build.
 
+## Nakib Product & Engineering Bible
+
+For Mahidul Islam Nakib's product portfolio, the authoritative operating standard is [`docs/PRODUCT-ENGINEERING-BIBLE.md`](docs/PRODUCT-ENGINEERING-BIBLE.md). Read it before planning, researching, designing, building, deploying, maintaining, or auditing a project. Supporting standards may add detail, but the Bible is the single entry point and source of truth for product, UX/CX, branding, frontend, backend, API, database, content, cost, QA, release, and maintenance expectations.
+
 DeveloperB is an independent product. The source repository and deployment configuration are technical implementation details that are being migrated separately. Cloudflare is referenced only as infrastructure and technical knowledge where appropriate; DeveloperB does not imply a partnership, sponsorship, or endorsement.
 
 [![Status](https://img.shields.io/badge/status-private--alpha-6C5CE7)](WORKSPACE.md)
@@ -104,7 +108,7 @@ flowchart LR
 ## Use with AI coding tools
 
 ```text
-Read BUILD-STATUS.md, WORKSPACE-STATUS.md, AGENTS.md, and the closest architecture guide.
+Read docs/PRODUCT-ENGINEERING-BIBLE.md first, then BUILD-STATUS.md, WORKSPACE-STATUS.md, AGENTS.md, and the closest architecture guide.
 Start from the real problem.
 Separate confirmed facts, assumptions, and unanswered questions.
 Consider build, buy, automate, process improvement, and do-not-build options.
@@ -125,7 +129,7 @@ Review environment variables, bindings, uploads, secrets, route safety, deployme
 ├── START-HERE.md               # Beginner path
 ├── AGENTS.md                   # Engineering and AI-agent rules
 ├── ROADMAP.md                  # Roadmap
-├── docs/                       # Learning guides, principles, checklists
+├── docs/                       # Product-engineering Bible, guides, principles, checklists
 ├── catalog/                    # Cloudflare technical knowledge
 ├── architectures/              # Reference application designs
 ├── playbooks/                  # Project-specific implementation guides
