@@ -4,16 +4,22 @@
 
 DeveloperB helps founders, clients, team members, and developers turn a real-world problem into a clear decision, useful documentation, a project blueprint, and a verified path to build.
 
-## Nakib Product & Engineering Bible
+## Authoritative operating standards
 
-For Mahidul Islam Nakib's product portfolio, the authoritative operating standard is [`docs/PRODUCT-ENGINEERING-BIBLE.md`](docs/PRODUCT-ENGINEERING-BIBLE.md). Read it before planning, researching, designing, building, deploying, maintaining, or auditing a project. Supporting standards may add detail, but the Bible is the single entry point and source of truth for product, UX/CX, branding, frontend, backend, API, database, content, cost, QA, release, and maintenance expectations.
+Before planning, designing, building, deploying, maintaining, or improving a Nakib-owned product, read:
 
-DeveloperB is an independent product. The source repository and deployment configuration are technical implementation details that are being migrated separately. Cloudflare is referenced only as infrastructure and technical knowledge where appropriate; DeveloperB does not imply a partnership, sponsorship, or endorsement.
+1. [`docs/PRODUCT-ENGINEERING-BIBLE.md`](docs/PRODUCT-ENGINEERING-BIBLE.md) — single authoritative product and engineering operating standard.
+2. [`docs/GROWTH-LAUNCH-AND-LIFECYCLE-STANDARD.md`](docs/GROWTH-LAUNCH-AND-LIFECYCLE-STANDARD.md) — mandatory companion for public/customer-facing projects covering social-platform readiness, SEO/LLM discoverability, analytics/pixels, AI-assisted metadata, launch readiness, post-launch monitoring, admin parity, and stack decisions.
 
-[![Status](https://img.shields.io/badge/status-private--alpha-6C5CE7)](WORKSPACE.md)
-[![Problem First](https://img.shields.io/badge/flow-problem--to--product-5ED3A5)](private-alpha/README.md)
-[![AI Ready](https://img.shields.io/badge/AI%20agents-ready-5A67D8)](AGENTS.md)
-[![Cloudflare Friendly](https://img.shields.io/badge/development-Cloudflare--friendly-F38020)](#cloudflare-friendly-toolkit)
+Supporting standards:
+
+- [`docs/NAKIB-PRODUCT-ENGINEERING-STANDARD.md`](docs/NAKIB-PRODUCT-ENGINEERING-STANDARD.md)
+- [`docs/HUMAN-EXPERIENCE-AND-RESEARCH-STANDARD.md`](docs/HUMAN-EXPERIENCE-AND-RESEARCH-STANDARD.md)
+- [`docs/BLOG-ARTICLE-AUTHORING-STANDARD.md`](docs/BLOG-ARTICLE-AUTHORING-STANDARD.md)
+- [`docs/PORTFOLIO-COST-MAINTENANCE-STANDARD.md`](docs/PORTFOLIO-COST-MAINTENANCE-STANDARD.md)
+- [`docs/PROJECT-REGISTRY-TEMPLATE.md`](docs/PROJECT-REGISTRY-TEMPLATE.md)
+
+If a supporting document conflicts with the Bible, the Bible wins unless a project-specific accepted decision explicitly overrides it.
 
 ## DeveloperB private alpha
 
@@ -108,7 +114,8 @@ flowchart LR
 ## Use with AI coding tools
 
 ```text
-Read docs/PRODUCT-ENGINEERING-BIBLE.md first, then BUILD-STATUS.md, WORKSPACE-STATUS.md, AGENTS.md, and the closest architecture guide.
+Read docs/PRODUCT-ENGINEERING-BIBLE.md and docs/GROWTH-LAUNCH-AND-LIFECYCLE-STANDARD.md first.
+Then read BUILD-STATUS.md, WORKSPACE-STATUS.md, AGENTS.md, and the closest architecture guide.
 Start from the real problem.
 Separate confirmed facts, assumptions, and unanswered questions.
 Consider build, buy, automate, process improvement, and do-not-build options.
@@ -118,7 +125,7 @@ Keep secrets out of source code and verify every important decision.
 
 ## Audit before deployment
 
-Review environment variables, bindings, uploads, secrets, route safety, deployment target, security gaps, monitoring gaps, and rollback readiness. Start with [`docs/production-readiness-checklist.md`](docs/production-readiness-checklist.md) and [`docs/rollback-checklist.md`](docs/rollback-checklist.md).
+Review environment variables, bindings, uploads, secrets, route safety, deployment target, security gaps, monitoring gaps, rollback readiness, analytics/tracking, SEO/indexability, social metadata/assets, admin usability, and post-launch monitoring. Start with [`docs/production-readiness-checklist.md`](docs/production-readiness-checklist.md) and [`docs/rollback-checklist.md`](docs/rollback-checklist.md).
 
 ## Repository map
 
@@ -129,7 +136,7 @@ Review environment variables, bindings, uploads, secrets, route safety, deployme
 ├── START-HERE.md               # Beginner path
 ├── AGENTS.md                   # Engineering and AI-agent rules
 ├── ROADMAP.md                  # Roadmap
-├── docs/                       # Product-engineering Bible, guides, principles, checklists
+├── docs/                       # Operating standards, learning guides, principles, checklists
 ├── catalog/                    # Cloudflare technical knowledge
 ├── architectures/              # Reference application designs
 ├── playbooks/                  # Project-specific implementation guides
@@ -145,10 +152,10 @@ Review environment variables, bindings, uploads, secrets, route safety, deployme
 - **Problem first:** understand the lived problem before proposing a product.
 - **Simple first:** start with the smallest working solution.
 - **Provider-neutral product:** choose infrastructure based on technical fit; do not imply affiliation.
-- **Production-aware:** think about security, data, deploys, and monitoring early.
+- **Production-aware:** think about security, data, deploys, monitoring, growth, discoverability, analytics, and maintenance early.
 - **Beginner-safe:** explain decisions in plain language before deep engineering detail.
 - **AI-ready:** write instructions clearly enough for coding agents to follow.
-- **Freshness-aware:** verify changing provider facts against official sources.
+- **Freshness-aware:** verify changing provider/platform facts against official sources.
 
 More principles: [`docs/09-project-principles.md`](docs/09-project-principles.md)
 
@@ -158,4 +165,4 @@ DeveloperB and the toolkit should be useful for real projects, justified, safe, 
 
 ## The promise
 
-> Help people move from real problems to build-ready products without wasting developer time, money, or AI effort.
+> Help people move from real problems to complete, launch-ready, maintainable products without wasting developer time, money, or AI effort.
