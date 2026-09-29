@@ -8,6 +8,13 @@ Every project starts production-minded from the first line. Do not build a rough
 
 The goal is not "code that compiles." The goal is a complete product flow that is visually polished, operationally useful, technically maintainable, scalable where necessary, and reliable after deployment.
 
+The companion standards in this repository are part of the same operating system and should be read together:
+
+- `docs/HUMAN-EXPERIENCE-AND-RESEARCH-STANDARD.md`
+- `docs/BLOG-ARTICLE-AUTHORING-STANDARD.md`
+- `docs/PORTFOLIO-COST-MAINTENANCE-STANDARD.md`
+- `docs/PROJECT-REGISTRY-TEMPLATE.md`
+
 ## 2. One coherent product, not disconnected layers
 
 A feature is not complete if only one layer exists.
@@ -437,6 +444,8 @@ Before implementation, infer obvious quality requirements from this standard. Du
 
 Do not repeatedly ask for decisions that this standard already answers.
 
+AI must also challenge weak assumptions. Do not treat every proposed feature, business idea, technology choice, or UX request as automatically good. Where material, compare it against user needs, market reality, cost, operational complexity, security, maintainability, and current industry practice. Explain tradeoffs and propose a better option when evidence supports one.
+
 Rework is expected for changed requirements, new information, or genuine product iteration. Rework should not be caused by avoidable basics such as broken spacing, missing responsive behavior, inconsistent components, forgotten states, missing media controls, unapplied migrations, or untested routes.
 
 ## 17. Relationship to DeveloperB UI Kit
@@ -449,4 +458,4 @@ New reusable components discovered in real projects should be promoted back into
 
 Aim for first-shot production quality as far as reasonably possible:
 
-**organized from the first line, coherent across every layer, visually strong, fast, responsive, verified, maintainable, and difficult to accidentally break tomorrow.**
+**organized from the first line, coherent across every layer, visually strong, fast, responsive, verified, maintainable, human-friendly, research-informed, and difficult to accidentally break tomorrow.**
