@@ -13,6 +13,7 @@ Choose the guide closest to your product:
 | Need | Guide |
 | --- | --- |
 | Content, articles, resources | [CMS](./cms.md) or [News Portal](./news-portal.md) |
+| Business listings and local discovery | [Business Directory](./business-directory.md) |
 | Workspace product | [SaaS](./saas.md) or [Multi-tenant SaaS](./multi-tenant-saas.md) |
 | Buyers and sellers | [Marketplace](./marketplace.md) |
 | Online store | [E-commerce](./e-commerce.md) |
@@ -30,6 +31,7 @@ Choose the guide closest to your product:
 
 - [News Portal](./news-portal.md)
 - [CMS](./cms.md)
+- [Business Directory](./business-directory.md)
 - [SaaS](./saas.md)
 - [Multi-tenant SaaS](./multi-tenant-saas.md)
 - [Marketplace](./marketplace.md)
