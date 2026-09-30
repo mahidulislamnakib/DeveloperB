@@ -4,6 +4,8 @@ Architecture patterns explain how Cloudflare services fit together for real appl
 
 Use this folder before writing code to choose the smallest useful design, understand data flow, and identify the production controls that matter.
 
+Before implementation, also review [`docs/COMMON-DEVELOPER-FAILURE-MODES.md`](../docs/COMMON-DEVELOPER-FAILURE-MODES.md). Architecture selection does not make a product production-ready by itself.
+
 ---
 
 ## Start here
@@ -12,7 +14,7 @@ Choose the guide closest to your product:
 
 | Need | Guide |
 | --- | --- |
-| Vague/random client website request | [Client Website Engineering Profiles](./client-website-profiles.md) |
+| Vague/random client website request | [Client Website Engineering Profile](./client-website-engineering-profile.md) |
 | Content, articles, resources | [CMS](./cms.md) or [News Portal](./news-portal.md) |
 | Workspace product | [SaaS](./saas.md) or [Multi-tenant SaaS](./multi-tenant-saas.md) |
 | Buyers and sellers | [Marketplace](./marketplace.md) |
@@ -23,15 +25,13 @@ Choose the guide closest to your product:
 | Live rooms, chat, collaboration | [Real-time Collaboration](./realtime-collaboration.md) |
 | Public or partner API | [API Platform](./api-platform.md) |
 
-For ordinary client work, classify the **product engine first** and then apply an **industry profile**. Do not assume that every website is either a static brochure or a full CMS.
-
 ---
 
 ## Available architecture guides
 
 ### Product and business systems
 
-- [Client Website Engineering Profiles](./client-website-profiles.md)
+- [Client Website Engineering Profile](./client-website-engineering-profile.md)
 - [News Portal](./news-portal.md)
 - [CMS](./cms.md)
 - [SaaS](./saas.md)
@@ -67,19 +67,21 @@ For ordinary client work, classify the **product engine first** and then apply a
 ```text
 Project requirement
   ↓
-Classify product engine and industry profile
+Classify product and business model
+  ↓
+Review common failure modes
   ↓
 Choose closest architecture
   ↓
-Identify dynamic admin-managed data vs static engineering behavior
-  ↓
 Build the smallest useful version
   ↓
-Add data, storage, and access rules
+Add data, storage, access, operations and failure rules
   ↓
 Apply production checklist
   ↓
 Use deployment and operations guides before launch
+  ↓
+Verify production behavior and feed durable lessons back into DeveloperB
 ```
 
 ---
@@ -136,13 +138,14 @@ Use **Low** for stable general guidance, **Medium** for product behavior or pric
 - Link related catalog pages, playbooks, prompts, and templates.
 - Keep Cloudflare facts fresh against official sources.
 - Make the guide useful for both humans and AI coding agents.
-- For client websites, anything presented as editable in admin must persist to the authoritative data source and be consumed by the corresponding public/product surface.
-- Do not build a universal oversized admin; size admin capabilities to the selected engine and industry profile.
+- Treat a successful build or deployment as evidence of deployability, not evidence that the product works end to end.
+- Verify real persisted behavior in production for critical user and operator flows.
 
 ---
 
 ## Related docs
 
+- [`docs/COMMON-DEVELOPER-FAILURE-MODES.md`](../docs/COMMON-DEVELOPER-FAILURE-MODES.md)
 - [`docs/PROJECT-ENGINE.md`](../docs/PROJECT-ENGINE.md)
 - [`playbooks/README.md`](../playbooks/README.md)
 - [`templates/README.md`](../templates/README.md)
