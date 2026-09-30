@@ -12,6 +12,7 @@ Choose the guide closest to your product:
 
 | Need | Guide |
 | --- | --- |
+| Vague/random client website request | [Client Website Engineering Profiles](./client-website-profiles.md) |
 | Content, articles, resources | [CMS](./cms.md) or [News Portal](./news-portal.md) |
 | Workspace product | [SaaS](./saas.md) or [Multi-tenant SaaS](./multi-tenant-saas.md) |
 | Buyers and sellers | [Marketplace](./marketplace.md) |
@@ -22,12 +23,15 @@ Choose the guide closest to your product:
 | Live rooms, chat, collaboration | [Real-time Collaboration](./realtime-collaboration.md) |
 | Public or partner API | [API Platform](./api-platform.md) |
 
+For ordinary client work, classify the **product engine first** and then apply an **industry profile**. Do not assume that every website is either a static brochure or a full CMS.
+
 ---
 
 ## Available architecture guides
 
 ### Product and business systems
 
+- [Client Website Engineering Profiles](./client-website-profiles.md)
 - [News Portal](./news-portal.md)
 - [CMS](./cms.md)
 - [SaaS](./saas.md)
@@ -63,7 +67,11 @@ Choose the guide closest to your product:
 ```text
 Project requirement
   ↓
+Classify product engine and industry profile
+  ↓
 Choose closest architecture
+  ↓
+Identify dynamic admin-managed data vs static engineering behavior
   ↓
 Build the smallest useful version
   ↓
@@ -128,6 +136,8 @@ Use **Low** for stable general guidance, **Medium** for product behavior or pric
 - Link related catalog pages, playbooks, prompts, and templates.
 - Keep Cloudflare facts fresh against official sources.
 - Make the guide useful for both humans and AI coding agents.
+- For client websites, anything presented as editable in admin must persist to the authoritative data source and be consumed by the corresponding public/product surface.
+- Do not build a universal oversized admin; size admin capabilities to the selected engine and industry profile.
 
 ---
 
