@@ -6,470 +6,287 @@
 
 DeveloperB must not treat design as decoration added after engineering. Design is a governed system for communication, trust, recognition, usability, accessibility, and brand consistency.
 
-This standard applies to:
+This standard applies to web/app UI, dashboards/admin systems, graphics/campaign assets, social media, presentations, documents/PDFs, print/packaging/signage, icons/illustrations/photography, motion/video, AI-assisted visual work, and future surfaces.
 
-- web and app UI;
-- dashboards and admin systems;
-- graphics and campaign assets;
-- social media posts and covers;
-- presentations and pitch decks;
-- documents, reports, proposals, invoices, certificates, and PDFs;
-- print collateral, packaging, signage, and event materials;
-- icons, illustrations, photography, video frames, motion graphics, and animation;
-- AI-generated or AI-assisted visual work;
-- future surfaces not yet defined.
+The goal is not to make every artifact identical. The goal is to make every artifact feel like the same product or brand while remaining appropriate to its medium, audience, and task.
 
-The goal is not to make every artifact look identical. The goal is to make every artifact feel like it belongs to the same product or brand while remaining appropriate to its medium, audience, and task.
+## 1. Core principles
 
----
-
-## 1. Core design principles
-
-Every design decision must pass these principles:
-
-1. **Purpose before style** — know the audience, message, task, and desired action before choosing visual treatment.
-2. **Hierarchy before decoration** — the user should know what to look at first, second, and third.
-3. **Consistency before novelty** — reuse established visual rules before inventing new ones.
-4. **Meaning before ornament** — every icon, image, illustration, color, animation, and visual effect must have a job.
-5. **Context before trend** — a trend is optional; brand clarity and usability are mandatory.
-6. **Human before AI-polished** — avoid sterile, generic, over-smoothed, obviously AI-generated visual language.
-7. **System before one-off** — reusable tokens, patterns, templates, and components are preferred over isolated styling.
-8. **Accessibility by default** — legibility, contrast, focus, state clarity, motion sensitivity, and content comprehension are design requirements.
-9. **Real content before placeholder aesthetics** — test layouts with realistic titles, names, photos, data, edge cases, long text, short text, and missing data.
-10. **Responsive and adaptable by design** — the system should survive different screen sizes, aspect ratios, languages, formats, and media.
-
----
+1. Purpose before style.
+2. Hierarchy before decoration.
+3. Consistency before novelty.
+4. Meaning before ornament.
+5. Context before trend.
+6. Human before generic AI-polish.
+7. System before one-off styling.
+8. Accessibility by default.
+9. Real content before placeholder aesthetics.
+10. Responsive/adaptable by design.
 
 ## 2. Design invariants
 
-These are the elements that should remain stable unless a deliberate redesign is approved:
+Keep these stable unless a deliberate redesign is approved: brand identity/logo rules, color roles, typography roles, spacing rhythm, radius philosophy, icon grammar, imagery/illustration direction, controls/states, motion character, voice, layout rhythm, data-visualization conventions, and accessibility baseline.
 
-- brand identity and logo rules;
-- core color roles;
-- typography roles;
-- spacing rhythm;
-- corner/radius philosophy;
-- icon family and stroke logic;
-- image treatment philosophy;
-- illustration style;
-- button and control hierarchy;
-- state language;
-- motion character;
-- tone of voice;
-- layout rhythm;
-- data visualization conventions;
-- accessibility baseline.
+An agent must not change them because another style looks newer or more fashionable.
 
-An AI agent must not change these because another style “looks modern.”
+## 3. Design tokens
 
----
+Represent repeatable decisions with semantic tokens where practical: color, typography, spacing, radius, shadow, stroke, motion, opacity, layout and z-index.
 
-## 3. Design tokens as the source of truth
+Prefer semantic names such as `color/text/secondary` over raw-value names when expressing usage. Raw values live behind tokens. Repeated magic numbers are a system failure. New tokens require a purpose; arbitrary one-off exceptions do not automatically become tokens.
 
-Design decisions should be represented with semantic tokens wherever practical.
+## 4. Typography
 
-### Token groups
+Typography is role-based, not improvised per screen. Define display, page title, section title, card title, body, small body, label, caption, data/number, quote, and technical roles where relevant.
 
-- `color/brand/*`
-- `color/text/*`
-- `color/surface/*`
-- `color/border/*`
-- `color/state/*`
-- `type/family/*`
-- `type/size/*`
-- `type/weight/*`
-- `type/line-height/*`
-- `space/*`
-- `radius/*`
-- `shadow/*`
-- `stroke/*`
-- `motion/duration/*`
-- `motion/easing/*`
-- `opacity/*`
-- `layout/max-width/*`
-- `layout/gutter/*`
-- `z/*`
+Limit font families unless justified. Use scale/weight intentionally. Avoid oversized headings that force poor wrapping. Keep headings one line where natural, never by making them unreadably small. Maintain readable line lengths, proper punctuation and script/language support. Do not bake text into images when live text is possible.
 
-Prefer semantic names such as `color/text/secondary` over raw-value names such as `gray-600` when the token is intended to express usage.
+## 5. Color
 
-### Rules
+Color communicates hierarchy, interaction and state. Define brand, surface, text, border, interaction, status, chart and overlay roles. Never use color alone for status. Preserve contrast. Avoid arbitrary rainbow dashboards. Decorative gradients must not reduce clarity. Consider dark mode, print and projection when relevant.
 
-- Raw values should live behind tokens.
-- Repeated magic numbers are a design-system failure.
-- Tokens must work across design tools and code where possible.
-- Do not create a new token for a single arbitrary exception unless that exception is intentional and repeatable.
-- New tokens require a stated purpose.
+## 6. Layout, spacing and composition
 
----
+Use repeatable rhythm instead of visual guesswork. Product interfaces need a spacing scale, gutters/max widths, grid/alignment, predictable hierarchy, meaningful whitespace and responsive behavior. Avoid excessive nested cards/boxes.
 
-## 4. Typography system
+Graphics need a focal point, safe areas, crop awareness, logo clear space and controlled density. Print work needs production-safe resolution, bleed/safe areas where required, readable physical type and proofed QR/legal content.
 
-Typography must be role-based, not improvised screen by screen.
+## 7. Photography, imagery and art direction
 
-Define roles such as:
+Prefer authentic/relevant subjects, culturally appropriate imagery, consistent grading/crops and real screenshots/data when demonstrating a product. Avoid unrelated stock imagery, repeated photos, generic corporate clichés, uncanny AI people, fake UI, impossible physical details and decorative images with no communication role.
 
-- display;
-- page title;
-- section title;
-- card title;
-- body;
-- small body;
-- label;
-- caption;
-- data/number;
-- quote;
-- code/technical text where relevant.
-
-### Typography rules
-
-- Limit the number of font families unless brand requirements justify more.
-- Use scale and weight intentionally; do not rely only on boldness for hierarchy.
-- Avoid oversized headings that force poor wrapping or consume disproportionate space.
-- Headings should stay on one line where naturally possible, but never by shrinking them to an unreadable size.
-- Maintain comfortable line length for long-form reading.
-- Use proper punctuation, case, and typographic rhythm.
-- Avoid ALL CAPS for long text.
-- Do not bake text into images when live text is possible.
-- Support the scripts/languages the product actually needs; do not choose a font solely because it looks good in English.
-
----
-
-## 5. Color system
-
-Color is a communication system, not decoration.
-
-### Define roles
-
-- brand primary and secondary;
-- surfaces/backgrounds;
-- text hierarchy;
-- borders/dividers;
-- interactive states;
-- success, warning, danger, and info;
-- charts/data series;
-- overlays and disabled states.
-
-### Rules
-
-- Do not use color alone to communicate status.
-- Preserve text and non-text contrast.
-- Avoid arbitrary rainbow palettes in dashboards.
-- Decorative gradients must not reduce clarity.
-- Dark mode, print output, projection, and low-quality display conditions should be considered when relevant.
-- Brand colors may be expressive in marketing assets but must remain functional in product UI.
-
----
-
-## 6. Layout, spacing, and composition
-
-Use a repeatable rhythm instead of visual guesswork.
-
-### Product interfaces
-
-- establish a spacing scale;
-- define page gutters and max widths;
-- align to a grid;
-- keep comparable objects aligned;
-- preserve predictable information hierarchy;
-- use whitespace to group information;
-- avoid excessive card nesting;
-- avoid unnecessary boxes and borders around everything;
-- design for mobile, tablet, laptop, large desktop, zoom, and content expansion.
-
-### Graphics and campaigns
-
-- establish a focal point;
-- respect safe areas;
-- control edge density;
-- account for platform crops;
-- preserve logo clear space;
-- avoid filling every empty area;
-- keep a predictable brand signature without turning every asset into the same template.
-
-### Print
-
-- include bleed/safe area when required;
-- use suitable resolution;
-- verify CMYK/spot-color requirements where production depends on them;
-- check minimum readable text size in physical output;
-- proof QR codes and small legal text.
-
----
-
-## 7. Photography, imagery, and art direction
-
-Images should support the real subject and brand.
-
-### Prefer
-
-- authentic people and environments;
-- relevant product/context photography;
-- culturally appropriate local imagery where applicable;
-- editorial framing with a clear subject;
-- consistent grading and crop philosophy;
-- real screenshots/data when demonstrating a product.
-
-### Avoid
-
-- unrelated stock photos;
-- repeating the same photo across unrelated sections;
-- generic corporate handshake imagery unless genuinely relevant;
-- uncanny AI people;
-- fake UI presented as a real product state;
-- impossible physical details;
-- decorative imagery that distracts from the message.
-
-### AI-generated imagery
-
-When AI imagery is used:
-
-- preserve brand art direction;
-- check hands, text, anatomy, objects, shadows, reflections, product details, cultural details, and physical plausibility;
-- do not imply a generated person/place/event is real;
-- do not fabricate product functionality;
-- retain provenance/usage notes where the project requires them.
-
----
+AI imagery must be checked for anatomy, text, objects, shadows, reflections, product details, cultural details and physical plausibility. Never imply generated people/places/events are real or fabricate product functionality.
 
 ## 8. Iconography and illustration
 
-Use one coherent visual grammar.
+Use one coherent visual grammar: fill/outline approach, stroke width, corner character, optical size, bounding box, brand-vs-utility use, complexity, texture and shading. Do not mix unrelated icon packs without normalization. Icons clarify meaning; they do not decorate every heading. Ambiguous icons need labels. Illustrations share perspective, proportion, palette and rendering language.
 
-Define:
+## 9. Motion
 
-- filled vs outline;
-- stroke width;
-- corner character;
-- optical size;
-- default bounding box;
-- brand vs utility icon usage;
-- illustration complexity;
-- texture and shading rules.
-
-### Rules
-
-- Do not mix unrelated icon packs without normalization.
-- Icons must clarify action or meaning, not merely decorate headings.
-- Repeated actions use repeated icons.
-- Pair ambiguous icons with text labels.
-- Illustrations should share a common perspective, proportion, palette, and rendering language.
-
----
-
-## 9. Motion and animation
-
-Motion must explain, orient, provide feedback, or add controlled brand character.
-
-Use motion for:
-
-- state transitions;
-- hierarchy and spatial continuity;
-- success/error feedback;
-- onboarding or explanation;
-- purposeful storytelling;
-- controlled campaign expression.
-
-Avoid:
-
-- animation on everything;
-- long blocking intros;
-- motion that delays core tasks;
-- fake progress;
-- excessive parallax;
-- autoplay effects that compete with reading;
-- looping visual noise.
-
-Support reduced-motion preferences for digital interfaces where applicable.
-
----
+Motion should explain, orient, provide feedback or add controlled brand character. Avoid animation everywhere, blocking intros, fake progress, excessive parallax, reading competition and looping noise. Support reduced-motion preferences where applicable.
 
 ## 10. Data visualization
 
-Charts must communicate a question and answer, not fill space.
+Charts answer a question. Choose chart types based on relationships, preserve color meanings, label units/time periods, avoid unnecessary 3D/deceptive axes, disclose missing/partial data, and maintain export/mobile legibility. Use tables when exact values matter more than pattern.
 
-### Rules
+## 11. Artifact modes
 
-- start with the decision or comparison the chart should support;
-- choose chart type based on data relationship;
-- maintain consistent color meanings;
-- label units and time periods;
-- avoid unnecessary 3D;
-- do not truncate axes deceptively;
-- show missing/partial data honestly;
-- preserve legibility on mobile and in exported reports;
-- use tables when exact values matter more than visual pattern.
+One identity has multiple modes:
 
----
+- Product UI: usability, state, responsiveness, accessibility, performance.
+- Marketing/web campaign: message, brand expression, conversion, storytelling, trust.
+- Social/graphic: stopping power, rapid comprehension, crop safety, recognition.
+- Presentation: spoken narrative, projection readability, pacing, visual storytelling; do not make slides into documents.
+- Document/report: reading flow, evidence, navigation, export/print quality, restrained branding.
+- Print/event: viewing distance, production constraints, environmental context.
+- Motion/video: timing, sequence, captions/sound-safe comprehension, continuity.
 
-## 11. Artifact-specific design modes
-
-The design system has one identity but multiple modes.
-
-### A. Product UI mode
-
-Priority: usability, clarity, state, responsiveness, accessibility, performance.
-
-### B. Marketing/web campaign mode
-
-Priority: message, brand expression, conversion, storytelling, trust.
-
-### C. Social/graphic mode
-
-Priority: stopping power, fast comprehension, platform crop safety, brand recognition.
-
-### D. Presentation mode
-
-Priority: spoken narrative, projection readability, slide-to-slide pacing, visual storytelling.
-
-Do not turn slides into documents. One slide should normally communicate one primary idea.
-
-### E. Document/report mode
-
-Priority: reading flow, evidence, navigation, print/export quality, restrained branding.
-
-### F. Print/event mode
-
-Priority: physical viewing distance, production constraints, legibility, environmental context.
-
-### G. Motion/video mode
-
-Priority: timing, sequence, sound-safe comprehension, captioning, visual continuity.
-
-AI agents must identify the mode before designing.
-
----
+Agents must identify the mode before designing.
 
 ## 12. Trend policy
 
-DeveloperB should track design trends, but trends never override brand fundamentals.
+Track trends without letting trends override brand fundamentals. Before adoption, ask whether a trend fits audience/message/brand, improves communication, remains accessible, ages acceptably, scales across surfaces and avoids generic AI output.
 
-### Trend adoption test
+Current signals worth monitoring include tactile texture, human imperfection/analog cues, restrained editorial layouts, authentic people/emotion, cultural specificity, selective surrealism, cinematic storytelling and AI-assisted production that preserves recognizable human/brand authorship. These are inspiration, never mandatory styles.
 
-Before applying a trend, answer:
-
-1. Does it support the audience and message?
-2. Does it fit the brand personality?
-3. Does it improve communication or emotional impact?
-4. Can it remain accessible and usable?
-5. Will it still look acceptable after the trend fades?
-6. Can it be implemented consistently across the relevant surfaces?
-7. Is it distinct enough from generic AI output?
-
-If not, do not use it.
-
-### 2026 signals worth monitoring
-
-Current industry trend research points toward:
-
-- tactile and sensory texture;
-- human imperfection and handmade/analog cues;
-- restrained editorial layouts and simpler branding;
-- authentic people and real emotional connection;
-- local cultural specificity;
-- playful surrealism when appropriate;
-- cinematic visual storytelling;
-- AI as a production partner while preserving human authorship and recognizable brand character.
-
-Treat these as inspiration, not mandatory styles.
-
-### Trend register
-
-Projects may keep a simple trend register:
-
-| Trend | Status | Suitable for | Avoid for | Review date |
-|---|---|---|---|---|
-| Example: tactile texture | experiment | campaign graphics | dense admin UI | quarterly |
-
-Statuses: `observe`, `experiment`, `approved`, `retire`.
-
----
+Projects may keep a trend register with `observe`, `experiment`, `approved`, and `retire` states.
 
 ## 13. Brand consistency matrix
 
-Every significant project should define a small matrix before large-scale visual production.
-
-| Area | Fixed | Flexible | Forbidden |
-|---|---|---|---|
-| Logo | approved marks, clear space | placement by format | distortion, recolor outside rules |
-| Color | semantic brand palette | campaign accents | random palettes |
-| Typography | approved roles | display treatment | arbitrary font switching |
-| Imagery | art-direction rules | subject/crop | unrelated stock/uncanny AI |
-| Icons | chosen family/style | icon selection | mixed visual grammar |
-| Layout | spacing/grid logic | composition | inconsistent alignment |
-| Motion | timing/easing character | storytelling intensity | distracting loops |
-| Voice | tone principles | campaign phrasing | generic AI filler |
-
----
+Every significant project should define what is fixed, flexible and forbidden for logo, color, typography, imagery, icons, layout, motion and voice. Approved marks/tokens/rules are fixed; format-specific composition may be flexible; distortion, random palettes/fonts, unrelated imagery, mixed visual grammar and distracting effects are forbidden unless explicitly approved.
 
 ## 14. AI-agent design contract
 
-This repository must work with any capable AI agent: ChatGPT, Codex, Claude, Gemini, Copilot, Cursor, Figma AI, Canva AI, future agents, or internal automation.
+This repository must work with any capable AI agent: ChatGPT, Codex, Claude, Gemini, Copilot, Cursor, Figma AI, Canva AI, future agents, internal automation, and humans assisted by AI.
 
 ### Before designing
 
-The agent must inspect, in this order when available:
+Inspect in this order when available:
 
-1. `AGENTS.md`
-2. this document;
+1. `AGENTS.md`;
+2. this standard;
 3. project brief/product charter;
-4. brand guide and brand boundary;
+4. brand guide/boundary;
 5. design tokens/theme files;
-6. existing components/templates;
+6. components/templates;
 7. recent approved representative work;
 8. content/data constraints;
-9. target artifact dimensions/platform;
-10. accessibility and production requirements.
+9. target dimensions/platform;
+10. accessibility/production requirements.
 
-The agent should not invent a new style before inspecting existing approved work.
+Determine artifact mode, audience, primary task/message, invariants, reusable patterns, dimensions/breakpoints, content hierarchy, interaction states, imagery/icons, accessibility, export format, and what may or may not change.
 
-### Agent must explicitly determine
+Do not redesign a brand without instruction, replace approved assets with generic AI assets, choose arbitrary fonts/colors/radii, duplicate existing components, add filler to complete layouts, chase trends, sacrifice accessibility/mobile, mix visual families, assume every section needs a card, repeat stock photos, fabricate imagery, or silently remove content to make a layout fit.
 
-- artifact mode;
-- target audience;
-- primary message/task;
-- brand invariants;
-- reusable patterns already available;
-- required dimensions/breakpoints;
-- content hierarchy;
-- interaction states if digital;
-- image/icon requirements;
-- accessibility constraints;
-- production/export format;
-- what may change and what must remain unchanged.
+## 15. Design Non-Hallucination Protocol — HARD RULE
 
-### Agent must not
+Unsupported visual invention is a design failure. An agent may create new design work, but it must never confuse invention with established project truth.
 
-- redesign the brand without being asked;
-- replace approved assets with generic AI assets;
-- choose arbitrary fonts/colors/radii;
-- duplicate components instead of reusing them;
-- insert filler text merely to complete a layout;
-- introduce a visual trend because it is fashionable;
-- sacrifice mobile or accessibility for aesthetics;
-- mix icon or illustration styles;
-- assume every section needs a card;
-- use the same stock photo repeatedly;
-- create impossible/false product imagery;
-- silently remove content to make a layout fit.
+### Evidence hierarchy
 
----
+When determining what the project's design actually is, use the strongest available evidence in this order:
 
-## 15. Cross-agent handoff format
+1. explicit current user/owner instruction;
+2. approved brand/design documentation;
+3. semantic design tokens and canonical theme configuration;
+4. approved reusable components/templates;
+5. approved source design files;
+6. current production implementation known to be intentional;
+7. recent approved representative artifacts;
+8. documented project history/decisions;
+9. clearly repeated existing patterns;
+10. proposal/inference only when stronger evidence is absent.
 
-To reduce drift between agents, every meaningful design task should leave a small handoff record.
+Lower-level evidence must not silently override higher-level evidence. If two authoritative sources conflict, stop the affected design decision, preserve the safest established state, record the conflict and request/seek resolution rather than guessing.
+
+### Four evidence labels
+
+Every non-trivial visual decision must conceptually belong to one of these classes:
+
+- **ESTABLISHED** — directly supported by an approved source of truth.
+- **INFERRED** — strongly derived from repeated evidence but not explicitly documented.
+- **PROPOSED** — a new design choice offered for approval.
+- **TEMPORARY** — a reversible placeholder needed to continue work.
+
+Never describe `INFERRED`, `PROPOSED`, or `TEMPORARY` decisions as existing brand rules.
+
+### No-evidence rule
+
+**No evidence → do not claim. No token → do not invent silently. No approved pattern → propose explicitly. Existing approved pattern → preserve it.**
+
+If design evidence is insufficient:
+
+1. search the repository/design sources first;
+2. reuse neutral/system defaults where they do not create a false brand claim;
+3. make the smallest reversible choice necessary to continue;
+4. label it `PROPOSED` or `TEMPORARY` in the handoff/status record;
+5. do not propagate that choice into a permanent token/component/brand rule until approved.
+
+### Never fabricate project identity
+
+Without evidence or explicit instruction, never invent and present as canonical:
+
+- brand colors or palettes;
+- font families or typography scales;
+- logo variants, lockups, clear-space rules or logo colors;
+- gradients, textures or patterns;
+- radius/shadow/stroke systems;
+- spacing/grid systems;
+- icon packs or illustration languages;
+- photography grading/art direction;
+- animation/motion personality;
+- chart palettes;
+- decorative motifs;
+- tone/visual personality merely from words such as “premium”, “modern”, “minimal”, “professional”, “luxury”, or “youthful”.
+
+Those adjectives describe goals, not a complete visual specification.
+
+### Never fabricate trust/content assets
+
+Never create or imply as real unless verified/provided:
+
+- partner/client/customer logos;
+- awards, badges, certifications or memberships;
+- testimonials, ratings or review counts;
+- statistics, achievements or usage numbers;
+- team/customer identities;
+- event photos or documentary scenes;
+- product screenshots/features/states that do not exist;
+- physical product details/specifications;
+- signatures, seals, credentials or official marks;
+- endorsements or brand relationships.
+
+A clearly fictional mockup used only for exploration must be marked as such and must not leak into production/export as factual content.
+
+### Placeholder containment
+
+Placeholders must be recognizable in source/handoff metadata and must never silently become canonical. Do not convert a placeholder color/font/image/icon into a token or approved asset merely because it was used once. Before production/export, verify that temporary assets/content have been replaced or explicitly accepted.
+
+### Existing design preservation
+
+When modifying an established project:
+
+- preserve unaffected visual rules;
+- prefer existing tokens/components/assets over near-duplicates;
+- do not perform opportunistic redesign during unrelated engineering work;
+- do not “clean up” intentional brand quirks just because an AI considers another pattern more conventional;
+- keep visual changes scoped to the requested problem;
+- require an explicit redesign task for broad visual-language changes.
+
+### Conflict handling
+
+If screenshots, code, tokens and documentation disagree:
+
+1. identify the conflicting evidence;
+2. prefer explicit approved/current sources over accidental legacy implementation;
+3. do not average conflicting styles together;
+4. do not invent a third style to reconcile them;
+5. record what was preserved and what remains unresolved.
+
+### Confidence does not equal evidence
+
+An agent's confidence, aesthetic preference, training-data familiarity, category convention, competitor design, current trend, or statement such as “this is best practice” is not evidence of this project's design identity.
+
+### New-project exception
+
+A project with no design system still needs design. In that case an agent may propose a coherent initial system, but it must be clearly treated as a new proposal. Once approved, capture it in tokens/components/brand documentation so future agents no longer need to guess.
+
+### Visual drift check
+
+After meaningful visual work, compare the rendered/exported result against the strongest available reference and check:
+
+- typography;
+- colors;
+- spacing/grid;
+- radii/shadows/strokes;
+- icon/illustration language;
+- imagery treatment;
+- component behavior;
+- responsive composition;
+- interaction states;
+- motion;
+- brand/content authenticity.
+
+Unexpected drift is a defect unless explicitly approved.
+
+### Anti-hallucination completion gate
+
+A design task is not complete until the agent can answer:
+
+- What design evidence did I use?
+- Which decisions were established versus inferred/proposed/temporary?
+- Did I introduce any new visual rule?
+- If yes, was it necessary, reversible and documented?
+- Did any placeholder or invented trust/content asset reach production?
+- Did the final artifact visually drift from approved references?
+
+If these cannot be answered, the design is not ready to be called complete.
+
+## 16. Cross-agent handoff
+
+Every meaningful design task should leave a compact durable handoff:
 
 ```md
 ## Design handoff
 Artifact: <page/post/deck/report/etc.>
 Mode: <product/marketing/social/presentation/document/print/motion>
 Audience: <who>
-Goal: <primary message or task>
+Goal: <primary message/task>
 
-### Invariants used
-- <token/component/brand rule>
+### Evidence used
+- <approved source/token/component/reference>
 
-### New decisions
-- <decision + reason>
+### Established decisions preserved
+- <rule/pattern>
+
+### Inferred decisions
+- <decision + evidence>
+
+### Proposed decisions
+- <decision + reason + approval status>
+
+### Temporary/placeholders
+- <item + replacement requirement>
 
 ### Assets
 - <source/file/license/credit where relevant>
@@ -480,141 +297,46 @@ Goal: <primary message or task>
 ### Accessibility
 - <contrast/focus/alt/captions/reduced motion/etc.>
 
+### Visual drift check
+- <comparison result>
+
 ### Verification
 - <what was reviewed/tested>
 
-### Open risks
-- <anything unverified>
+### Open conflicts/risks
+- <anything unresolved>
 ```
 
-This should be short and durable. Do not store lengthy AI reasoning.
+Do not store lengthy hidden reasoning.
 
----
-
-## 16. Design review gates
+## 17. Design review gates
 
 A visual artifact is not complete just because it renders.
 
-### Gate 1 — Purpose
+1. **Purpose** — message/task, hierarchy and audience/context are correct.
+2. **Brand** — correct assets/language and no unapproved drift.
+3. **Consistency** — spacing/alignment/repeated elements/states follow the system.
+4. **Accessibility** — contrast, readable type, keyboard/focus, non-color signals, reduced motion, alt/captions/transcripts where relevant.
+5. **Content authenticity** — no generic filler, unsupported claims, fabricated trust assets or misleading imagery; edge cases are realistic.
+6. **Format** — dimensions, responsiveness/crops, export quality, performance/file size and production constraints are correct.
+7. **Visual QA** — inspect actual output, not only source code/layers.
+8. **Non-hallucination** — evidence is known, proposals/placeholders are identified, and no unsupported design rule has been promoted to project truth.
 
-- primary message/task is obvious;
-- hierarchy matches importance;
-- audience/context is appropriate.
+For digital products verify representative mobile, desktop, loading, empty, error, success, disabled, long/short content, missing image/data and permission-restricted states where applicable.
 
-### Gate 2 — Brand
+## 18. Common anti-patterns
 
-- correct assets;
-- correct typography/color/icon/imagery language;
-- no unapproved style drift.
+Reject excessive rounded cards, glassmorphism, arbitrary gradients/gradient text, huge low-information headings, decorative icon bubbles, badge/pill overload, meaningless statistics, fake testimonials, duplicate imagery, inconsistent illustration/icon families, mixed grading, excessive shadows, wasteful spacing, tiny low-contrast text, centered long paragraphs, animation masking weak hierarchy, purposeless charts, text-wall slides, equal-emphasis posters, generic futuristic-AI visuals, copied category-leader identity, and any unsupported visual invention presented as an existing brand decision.
 
-### Gate 3 — Consistency
+## 19. Research and inspiration
 
-- spacing and alignment follow the system;
-- repeated elements behave and look the same;
-- states and controls are predictable.
+Research category norms/current visual culture when appropriate. Learn information architecture, interaction patterns, hierarchy, density, art direction, platform conventions and emerging patterns. Never copy logos, proprietary illustrations, distinctive layouts wholesale, brand-specific visual combinations or copyrighted assets without rights. Record pattern learnings as principles, not screenshot-only inspiration dumps.
 
-### Gate 4 — Accessibility
+External references may inspire a `PROPOSED` direction; they never prove an `ESTABLISHED` project rule.
 
-- contrast;
-- readable type;
-- keyboard/focus where interactive;
-- color is not the only signal;
-- reduced motion where relevant;
-- alt/captions/transcripts where relevant.
+## 20. Design source of truth
 
-### Gate 5 — Content
-
-- no placeholder or generic AI copy;
-- no incorrect claims;
-- realistic edge cases tested;
-- image subject matches content.
-
-### Gate 6 — Format
-
-- correct dimensions;
-- responsive/crop behavior;
-- export quality;
-- file size/performance where relevant;
-- print production requirements where relevant.
-
-### Gate 7 — Visual QA
-
-Review the actual output, not just source code or layer structure.
-
-For digital products, verify at least representative:
-
-- mobile;
-- desktop;
-- loading;
-- empty;
-- error;
-- success;
-- disabled;
-- long content;
-- short content;
-- missing image/data;
-- permission-restricted state where applicable.
-
----
-
-## 17. Anti-patterns
-
-Reject designs that exhibit these common AI/design failures:
-
-- everything in rounded cards;
-- excessive glassmorphism;
-- random gradients;
-- gradient text without a strong reason;
-- huge hero headings with little useful content;
-- decorative icon bubbles beside every heading;
-- too many pills/badges;
-- meaningless statistics;
-- fake testimonials;
-- duplicate imagery;
-- inconsistent illustration families;
-- mixed photography grading;
-- overuse of shadows;
-- extreme spacing that wastes screen area;
-- tiny low-contrast text;
-- center-aligning long paragraphs;
-- using animation to hide weak hierarchy;
-- dashboard charts with no decision purpose;
-- slide decks that are walls of text;
-- poster designs where everything has equal emphasis;
-- generic “futuristic AI” visuals unrelated to the product;
-- copying the visual identity of a category leader.
-
----
-
-## 18. Research and inspiration policy
-
-Agents should research category norms and current visual culture when appropriate.
-
-Use mature products and leading creative work to learn:
-
-- information architecture;
-- interaction patterns;
-- visual hierarchy;
-- content density;
-- art direction;
-- platform conventions;
-- emerging patterns.
-
-Never copy:
-
-- logos;
-- proprietary illustrations;
-- distinctive layouts wholesale;
-- brand-specific color/typography combinations;
-- copyrighted creative assets without rights.
-
-Document useful pattern learnings as principles, not screenshots-only inspiration dumps.
-
----
-
-## 19. Design source-of-truth structure for projects
-
-For projects large enough to need a system, prefer a structure similar to:
+For projects large enough to need a system, prefer a discoverable structure such as:
 
 ```text
 /design
@@ -633,34 +355,15 @@ For projects large enough to need a system, prefer a structure similar to:
 DESIGN-STATUS.md
 ```
 
-Equivalent structures are acceptable. The important requirement is that design rules and approved assets are discoverable by both humans and AI agents.
+Equivalent structures are acceptable. Rules and approved assets must be discoverable by humans and AI agents.
 
----
+## 21. Keeping the system current
 
-## 20. Keeping the system current
+Review for accessibility/platform changes, brand evolution, production formats, useful trends, repeated agent mistakes, recurring review feedback and new component/token needs. When a mistake repeats across projects, improve the system instead of fixing it repeatedly. Stable principles remain stable; trend examples may change more frequently.
 
-Design guidance must evolve deliberately.
+## 22. Minimum design brief
 
-Review periodically for:
-
-- accessibility standard changes;
-- platform behavior changes;
-- brand evolution;
-- new production formats;
-- useful emerging trends;
-- repeated agent mistakes;
-- recurring design-review feedback;
-- new component/token needs.
-
-When a recurring mistake appears in multiple projects, improve the system instead of fixing the same mistake repeatedly.
-
-Do not rewrite the system for every trend cycle. Stable principles remain stable; the trend register and examples may change more frequently.
-
----
-
-## 21. Minimum design brief for any new project
-
-Before substantial design work, define at least:
+Before substantial new-project design, define:
 
 ```md
 Project:
@@ -681,14 +384,15 @@ Platforms/formats:
 Reference patterns:
 Trend stance:
 Approval owner:
+Evidence/source-of-truth locations:
 ```
 
-If information is missing, use existing repo standards and make the smallest reversible assumption.
+Missing information is not permission to hallucinate. Search existing evidence first; otherwise make only the smallest reversible, explicitly proposed/temporary choice.
 
----
+## Final rules
 
-## Final rule
+**A strong design system makes the correct design easier to produce than an inconsistent one — for humans and AI.**
 
-**A strong design system should make the correct design easier to produce than an inconsistent one — for both humans and AI.**
+**No evidence → do not claim. No token → do not invent silently. No approved pattern → propose explicitly. Existing approved pattern → preserve it.**
 
-The job of an agent is not to display its creativity on every task. Its job is to create the clearest, most appropriate, most consistent artifact for the product, brand, audience, and medium.
+An agent's job is not to display creativity on every task. It is to create the clearest, most appropriate, most consistent and evidence-backed artifact for the product, brand, audience and medium.
