@@ -12,7 +12,15 @@ Turn real-world problems and product requirements into safe, maintainable system
 
 For any task involving visual design, UI/UX, branding, graphics, social assets, presentations, documents, print, imagery, icons, illustration, data visualization, animation, or motion, read and follow [`docs/13-universal-design-system-and-ai-agent-standard.md`](docs/13-universal-design-system-and-ai-agent-standard.md) before making design decisions.
 
-This requirement is agent-agnostic. It applies whether the work is performed by ChatGPT, Codex, Claude, Gemini, Copilot, Cursor, Figma AI, Canva AI, another AI system, or a human contributor assisted by AI. Existing approved brand assets, semantic tokens, reusable components, templates, and representative work take precedence over arbitrary stylistic invention.
+This requirement is agent-agnostic. It applies to ChatGPT, Codex, Claude, Gemini, Copilot, Cursor, Figma AI, Canva AI, other/future AI systems, and humans assisted by AI. Existing approved brand assets, semantic tokens, reusable components, templates, and representative work take precedence over arbitrary stylistic invention.
+
+### Design non-hallucination rule
+
+Unsupported visual invention is a failure condition. For visual work, agents must follow the Design Non-Hallucination Protocol in the required design standard.
+
+**No evidence → do not claim. No token → do not invent silently. No approved pattern → propose explicitly. Existing approved pattern → preserve it.**
+
+Never present an inferred, proposed, temporary, placeholder, trend-derived, competitor-derived, or AI-generated visual decision as an established project/brand rule. Never fabricate brand assets, trust signals, partners, testimonials, statistics, certifications, product states, people, events, or other factual visual content. If authoritative design sources conflict, preserve the safest established state and record/resolve the conflict instead of guessing.
 
 ## Decision rule
 
@@ -30,10 +38,10 @@ Do not start coding a broad request immediately. First define:
 2. Restate the task as a small plan.
 3. Choose the smallest suitable architecture.
 4. Include UI/UX, security, privacy, accessibility, performance, analytics, support, deployment, and rollback.
-5. Identify bindings, secrets, migrations, routes, permissions, approvals, recovery, design invariants, and reusable patterns.
+5. Identify bindings, secrets, migrations, routes, permissions, approvals, recovery, design invariants, evidence, and reusable patterns.
 6. Make focused changes.
-7. Run relevant checks, including visual QA when the output is visual.
-8. Report changed files, commands, verification, risks, and next safe step.
+7. Run relevant checks, including visual QA and drift comparison when output is visual.
+8. Report changed files, commands, verification, risks, unresolved evidence conflicts, and next safe step.
 
 ## Persistent build record
 
@@ -44,7 +52,7 @@ Maintain `BUILD-STATUS.md` using [`templates/agent-build-status.md`](templates/a
 - Record loading, error, mobile, keyboard, and permission states where relevant.
 - Use repeatable non-production fixtures.
 - Before migration, record user journey, ownership, first queries, indexes, lifecycle, server-controlled values, and verification plan.
-- For meaningful visual work, record the artifact mode, design invariants used, new design decisions, assets, responsive/format notes, accessibility checks, verification, and open risks.
+- For meaningful visual work, record artifact mode, design evidence, established rules preserved, inferred/proposed/temporary decisions, assets, responsive/format notes, accessibility, visual drift check, verification, and open conflicts/risks.
 - End each session with decisions, commands/results, unverified items, risks, and the next smallest task.
 
 ## Cloudflare-friendly service selection
@@ -69,7 +77,8 @@ Maintain `BUILD-STATUS.md` using [`templates/agent-build-status.md`](templates/a
 - Never claim deployment success without evidence.
 - Never add a provider service without explaining why it is needed.
 - Never imply a provider affiliation that does not exist.
-- Never claim visual/design completion from source inspection alone; review the rendered/exported artifact when the tooling allows it.
+- Never claim visual/design completion from source inspection alone; review the rendered/exported artifact when tooling allows it.
+- Never claim a visual rule is canonical without design evidence.
 
 ## Debugging format
 
