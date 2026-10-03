@@ -113,3 +113,12 @@ Legacy GitHub repository name: migration still required outside this code change
 1. Review the **quality-foundation** pull request. Run `npm install` and `npm run check`, inspect the generated dependency lockfile, then verify the Quality, CodeQL, Gitleaks, and Zizmor workflow results.
 2. Complete the **DeveloperB Worker migration**: create or rename the connected Worker to `developerb-workspace`, reconnect the Git build if needed, protect the preview, and verify `/`, `/api/health`, and `/api/workspace`.
 3. Then begin **B-002**: attach a dedicated preview D1 database, apply both migrations with synthetic fixtures, and verify organization isolation plus discovery-to-blueprint-to-project queries.
+
+## Handbook update — UI/UX/CX guidance (2026-10-03)
+
+- Status: documentation prepared for review; existing runtime tasks and their verification states remain unchanged.
+- Delivered: shared UI/UX/CX playbook, audit/coverage template, agent entry-point and playbook index links.
+- Acceptance: includes project-specific visual contracts; full interaction/upload/persistence states; customer communication/support ownership; severity and evidence rules; mobile, keyboard and preview checks; explicit blocked/not-tested reporting.
+- Verification: relative Markdown links in changed documents checked against the repository tree; guidance reviewed against existing accessibility, testing and directory guides. No runtime behavior changed; runtime tests are not required for this documentation-only update.
+- Risk/recovery: projects still need actual implementation and browser verification; revert this documentation commit if guidance needs correction.
+- Next handbook task: use the template on Somogro's affected logo and navigation journeys, retaining incomplete authentication/mobile/preview checks as explicit gaps.
