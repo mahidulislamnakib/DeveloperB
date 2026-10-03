@@ -18,7 +18,9 @@ Use this folder when you know what you need to build, launch, improve, or recove
 | I need a recovery and continuity plan | [Disaster Recovery & Business Continuity](./disaster-recovery-business-continuity.md) |
 | I need to reduce avoidable cost | [Cost Optimization](./cost-optimization.md) |
 | I need faster core journeys | [Performance Optimization](./performance-optimization.md) |
-| I need a more usable, inclusive interface | [Accessibility & Inclusive UX](./accessibility-inclusive-ux.md) |
+| I need consistent UI, complete journeys and customer experience | [UI, UX and Customer Experience](./ui-ux-cx.md) |
+| I need a more usable, inclusive interface | [UI, UX and Customer Experience](./ui-ux-cx.md) | Visual contracts, complete interactions, customer journeys and evidence-based audits | Shared UI standards, recovery, support ownership, audit template and release checks |
+| [Accessibility & Inclusive UX](./accessibility-inclusive-ux.md) |
 | I need an AI-agent prompt for a task | [`../prompts/README.md`](../prompts/README.md) |
 
 ---

@@ -76,3 +76,7 @@ Maintain `BUILD-STATUS.md` using [`templates/agent-build-status.md`](templates/a
 ## Output style
 
 Be direct. Prefer Windows PowerShell and VS Code commands. State uncertainty clearly. Verify current provider facts with official sources when needed.
+
+## UI, UX and customer experience
+
+For interface creation, refinement or audits, apply [UI, UX and Customer Experience](playbooks/ui-ux-cx.md) with the existing accessibility and testing playbooks. Preserve the project's approved identity and use shared tokens/components. Cover the full affected journey, including persistence, recovery, mobile and role boundaries. Record coverage and evidence with [the UI/UX/CX audit template](templates/ui-ux-cx-audit.md); never call untested browser or missing-asset checks passed. Scale checks to scope and risk.
