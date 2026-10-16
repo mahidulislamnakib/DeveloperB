@@ -45,7 +45,20 @@ For temporary environments:
 - destroy or expire the environment after the task;
 - preserve only intentional outputs and evidence.
 
-## 3. Private-by-default previews
+## 3. Source-control isolation
+
+For coding agents, isolation should include the source-control surface.
+
+Prefer:
+- a fresh branch/worktree/fork per coherent task;
+- a known starting commit;
+- scoped write access;
+- reviewable commits/PRs;
+- no standing permission to rewrite canonical history.
+
+Temporary agent workspaces are safer than giving an autonomous agent permanent unrestricted write access to the canonical repository.
+
+## 4. Private-by-default previews
 
 Local and agent-generated previews should not be publicly exposed by default.
 
@@ -57,7 +70,7 @@ When temporary remote access is required:
 - never expose admin panels, local databases, debug endpoints, secrets, or developer tools publicly;
 - remove/expire temporary access after review.
 
-## 4. Long-running and disconnected work
+## 5. Long-running and disconnected work
 
 User connection lifetime and task lifetime are not the same thing.
 
@@ -74,7 +87,28 @@ For work that may continue after the initiating browser/session disconnects:
 
 Never implement an unbounded loop just because the platform can keep a process alive.
 
-## 5. Observability for agents
+## 6. Retry and financial circuit breakers
+
+Every recurring, queued, or agentic workflow must have bounded failure behavior.
+
+Define:
+- maximum retry count;
+- retry/backoff policy;
+- idempotency/deduplication key where applicable;
+- dead-letter or terminal-failure path;
+- maximum executions per logical job;
+- maximum duration;
+- cost/usage threshold;
+- human escalation path.
+
+Never allow:
+```text
+failure → retry → enqueue → failure → retry → enqueue forever
+```
+
+Reliability includes financial failure modes.
+
+## 7. Observability for agents
 
 Agent activity must be inspectable enough to debug and audit without storing unnecessary sensitive content.
 
@@ -96,7 +130,37 @@ Prefer structured events and traces over giant free-text logs.
 
 Do not log secrets, authentication tokens, private credentials, or full sensitive user data.
 
-## 6. Production-error-to-fix loop
+## 8. Event-driven monitoring
+
+Prefer bounded event-driven investigation over constant polling when the platform provides trustworthy events/webhooks.
+
+A safe pattern is:
+
+```text
+verified event
+→ deduplicate
+→ bounded investigation
+→ evidence report
+→ human decision
+```
+
+Validate event signatures/authenticity, deduplicate repeated delivery, and cap investigation cost.
+
+Do not let a noisy event stream trigger unlimited agent calls or production mutation.
+
+## 9. Telemetry semantics
+
+Do not treat every error code or metric movement as the same failure.
+
+Examples:
+- client cancellation is not automatically a server failure;
+- a security detector failing is not the same as a clean security result;
+- a model/provider authentication failure should not enter an infinite retry loop;
+- analytics instrumentation changes can alter reported metrics without changing user behavior.
+
+Record the meaning of important status codes/telemetry fields and update dashboards/alerts when provider semantics change.
+
+## 10. Production-error-to-fix loop
 
 A safe remediation loop is:
 
@@ -115,7 +179,7 @@ production signal
 
 Never allow a noisy error detector to directly deploy arbitrary code to production.
 
-## 7. Cost observability
+## 11. Cost observability
 
 Cost is an operational signal, not only a billing problem.
 
@@ -143,7 +207,7 @@ For recurring automation, define:
 
 Do not automatically delete data, disable production, or shut down legitimate traffic solely because a usage alert fired. Cost anomalies require investigation first unless an explicit emergency circuit breaker was deliberately designed.
 
-## 8. Task-based AI model routing
+## 12. Task-based AI model routing
 
 Do not use the most capable or expensive model for every task.
 
@@ -164,9 +228,25 @@ Examples:
 - difficult debugging, architecture, research synthesis, and ambiguous reasoning may justify stronger models;
 - irreversible or high-risk decisions still require explicit safeguards/human review.
 
-Benchmark representative portfolio tasks before changing default models. Compare quality, failure rate, latency, and cost—not benchmark scores alone.
+Benchmark representative portfolio tasks before changing default models. Compare quality, failure rate, latency, hardware/resource use, and total correction cost—not benchmark scores or token price alone.
 
-## 9. Context and retrieval economy
+## 13. Model/provider lifecycle
+
+Treat model availability as an operational dependency.
+
+Do not hard-code a model identifier in many workflows when configuration can centralize it.
+
+For model deprecations/retirements:
+- inventory actual references;
+- identify affected workflows;
+- choose a tested replacement;
+- compare quality/cost/latency;
+- update only confirmed consumers;
+- keep fallback behavior where the use case requires continuity.
+
+Local models are not automatically cheaper; include hardware, latency, maintenance, and correction effort in total cost.
+
+## 14. Context and retrieval economy
 
 Do not repeatedly send the entire knowledge base or repository history to every agent.
 
@@ -182,7 +262,7 @@ For large knowledge bases, evaluate source-aware retrieval/search before increas
 
 A retrieval system is useful only if it preserves provenance and can show which source supported the answer.
 
-## 10. Web research and grounding
+## 15. Web research and grounding
 
 Automated research should search first and reason second.
 
@@ -199,7 +279,7 @@ Store the source and checked date for time-sensitive decisions.
 
 Do not let an agent treat a search result snippet, guessed URL, viral post, or single unverified source as sufficient evidence for a consequential decision.
 
-## 11. Open-source adoption gate
+## 16. Open-source adoption gate
 
 Before adopting a new repository/package/tool, inspect:
 
@@ -216,7 +296,24 @@ Before adopting a new repository/package/tool, inspect:
 
 A popular repository is not automatically a good dependency.
 
-## 12. MCP and agent-facing interfaces
+## 17. Platform-native before custom automation
+
+Before creating custom infrastructure for:
+- sandboxing;
+- repository governance;
+- secret scanning;
+- dependency verification;
+- notifications;
+- browser automation;
+- observability;
+- permission scoping;
+- usage/budget monitoring;
+
+check whether the existing platform already offers a sufficiently safe, observable capability.
+
+Prefer eliminating code and maintenance when the native feature satisfies the actual requirement.
+
+## 18. MCP and agent-facing interfaces
 
 When exposing project capabilities to agents:
 
@@ -230,7 +327,7 @@ When exposing project capabilities to agents:
 
 Do not create an MCP/API surface merely because agent tooling is fashionable. There must be a real machine-to-machine use case.
 
-## 13. Heavy workload routing
+## 19. Heavy workload routing
 
 Do not force every workload into one runtime.
 
@@ -238,7 +335,21 @@ Use lightweight edge/serverless compute for control-plane tasks and route heavy 
 
 Architecture should follow workload characteristics, not brand loyalty to one infrastructure primitive.
 
-## 14. Human approval boundaries
+## 20. Build/runtime reproducibility for agents
+
+Agent-generated code must be tested in the environment that materially resembles the intended build/runtime.
+
+Record or pin when appropriate:
+- runtime version;
+- package manager version;
+- framework/adapter version;
+- CI action versions;
+- platform compatibility date;
+- relevant build defaults.
+
+A passing local test is not enough when the deployment environment uses materially different tooling.
+
+## 21. Human approval boundaries
 
 Human review is mandatory before automation performs high-consequence actions unless an explicitly approved policy says otherwise.
 
@@ -255,7 +366,7 @@ Examples:
 
 Automation may prepare, validate, and recommend these actions without executing them.
 
-## 15. Adoption labels
+## 22. Adoption labels
 
 When new technology appears, use one decision label:
 
@@ -269,7 +380,7 @@ When new technology appears, use one decision label:
 
 Record why the label was chosen and what evidence would change it.
 
-## 16. Minimum automation record
+## 23. Minimum automation record
 
 Every recurring or meaningful automation should document:
 
@@ -287,7 +398,9 @@ Runtime/environment:
 Maximum duration:
 Expected frequency:
 Cost boundary:
-Failure/retry behavior:
+Retry limit/backoff:
+Idempotency/deduplication:
+Failure/dead-letter behavior:
 Stop/cancel behavior:
 Logs/evidence:
 Output destination:
@@ -295,7 +408,7 @@ Last verified:
 Next review:
 ```
 
-## 17. Definition of done for an agent workflow
+## 24. Definition of done for an agent workflow
 
 An agent workflow is not finished because one happy-path run succeeded.
 
@@ -306,8 +419,10 @@ Verify:
 - isolated execution where applicable;
 - success, empty, retry, timeout, cancellation, and failure behavior;
 - duplicate/idempotency handling;
+- bounded retries and financial circuit breakers;
 - cost/frequency boundaries;
 - log/trace visibility;
+- telemetry semantics;
 - secret/privacy handling;
 - human approval boundary;
 - rollback/recovery where relevant;
@@ -316,6 +431,6 @@ Verify:
 
 ## Final principle
 
-> Autonomy should increase only as evidence, isolation, observability, reversibility, and trust increase.
+> Autonomy should increase only as evidence, isolation, observability, reversibility, cost control, and trust increase.
 
 DeveloperB should make agents more capable without making systems less controllable.
