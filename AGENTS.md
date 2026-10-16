@@ -51,10 +51,15 @@ Maintain `BUILD-STATUS.md` using [`templates/agent-build-status.md`](templates/a
 
 Follow [`docs/07-update-system.md`](docs/07-update-system.md).
 
+- Default broad technology intelligence to a weekly high-signal review; interrupt the cadence only for urgent security, outage, deprecation, legal/compliance, or production-impacting events.
 - Prefer primary/official sources.
-- Keep only high-signal changes that can alter reliability, security, cost, UX, capability, compliance, or architecture.
-- Use `WATCH`, `RESEARCH`, `TEST`, `ADOPT`, `MIGRATE`, `AVOID`, or `NO ACTION` for new technology decisions.
-- Do not adopt a new framework, repository, agent, MCP server, model, or platform feature because it is fashionable.
+- Keep only changes that can alter reliability, security, cost, UX, capability, compliance, or architecture.
+- Use `WATCH`, `RESEARCH`, `TEST`, `ADOPT`, `MIGRATE`, `AVOID`, or `NO ACTION`.
+- Report repeated news only when the decision state materially changes.
+- Track security/deprecation deadlines separately from announcement dates.
+- Measure before redesigning after search, analytics, performance, or telemetry changes.
+- Prefer platform-native capability before writing custom automation when it satisfies the requirement.
+- Treat CI/build dependencies and monitoring/notification semantics as operational dependencies.
 - Before adopting open source, check license, maintenance, security, compatibility, dependency burden, and exit cost.
 
 ## AI/token and model economy
@@ -71,18 +76,20 @@ deterministic code/rules
 → specialist/frontier model only when justified
 ```
 
-Retrieve only relevant context before sending large knowledge bases or repository history. Benchmark quality, latency, failure rate, and cost before changing model defaults.
+Retrieve only relevant context before sending large knowledge bases or repository history. Benchmark quality, latency, failure rate, total correction cost, and resource usage before changing model defaults. Treat model retirement/deprecation as an operational dependency and avoid scattering hard-coded model IDs across workflows.
 
 ## Agent runtime and automation safety
 
 Follow [`docs/13-agent-runtime-observability-and-cost-standard.md`](docs/13-agent-runtime-observability-and-cost-standard.md) for coding agents, browser automation, long-running jobs, retrieval systems, or recurring AI workflows.
 
 - Prefer read-only inspection before write access.
-- Prefer isolated/disposable sandboxes for risky or heavy work.
+- Prefer isolated/disposable sandboxes and task-specific branches/worktrees/forks for risky work.
 - Protect temporary previews; do not expose local/admin/debug surfaces publicly by default.
 - Give agents the minimum permissions and secrets needed for one task.
-- Define maximum duration, retry limit, stop condition, cost boundary, and orphan cleanup for recurring/long-running automation.
+- Define maximum duration, retry limit, idempotency/deduplication, stop condition, cost boundary, and orphan/dead-letter handling.
+- Prefer event-driven bounded investigation over constant polling when trustworthy events exist.
 - Keep structured logs/traces/evidence without storing secrets or unnecessary sensitive data.
+- Understand telemetry semantics; client cancellations, detector failures, auth failures, and instrumentation changes are not interchangeable.
 - Production errors may trigger investigation and a proposed fix, but not arbitrary automatic production deployment.
 - Human approval is required for destructive migrations, data deletion, broad permission changes, consequential publishing/messaging, financial actions, and irreversible infrastructure changes unless an explicit approved policy says otherwise.
 
@@ -103,14 +110,16 @@ Follow [`docs/13-agent-runtime-observability-and-cost-standard.md`](docs/13-agen
 
 Cloudflare is preferred when technically appropriate, not forced. Architecture should follow workload characteristics, reliability, ecosystem, and cost.
 
-## Cost and observability rules
+## Cost, reproducibility, and observability rules
 
 - Treat human time, AI tokens, CI, preview deployments, browser sessions, Workers, storage, logs/traces, search/data APIs, and external services as costs.
 - Use usage dashboards/budget alerts when available; investigate anomalies before destructive action.
 - Batch related changes when safe instead of deploying every trivial edit.
 - Keep dependencies safely current; do not blindly upgrade major versions.
+- Pin or record runtime/package-manager/framework/adapter/CI-action versions when reproducibility matters.
 - Avoid duplicate scheduled jobs, repeated imports, and open-ended retry loops.
 - A technically healthy system can still be operationally unhealthy if cost or telemetry grows without control.
+- A running application can still be operationally blind if notifications, dashboards, or telemetry semantics changed unnoticed.
 
 ## Safety rules
 
