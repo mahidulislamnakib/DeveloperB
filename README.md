@@ -56,6 +56,14 @@ This repository includes practical guidance for building and operating applicati
 🤖 **Using an AI coding agent? Read [`AGENTS.md`](AGENTS.md).**  
 🏗️ **Choosing a system design? Browse [`architectures/README.md`](architectures/README.md).**
 
+## Current operating guidance
+
+DeveloperB treats agent runtime, cost, observability, and knowledge freshness as engineering concerns rather than afterthoughts.
+
+- [`docs/07-update-system.md`](docs/07-update-system.md) — high-signal technology radar and safe adoption decisions.
+- [`docs/12-ai-token-and-decision-economy.md`](docs/12-ai-token-and-decision-economy.md) — context, model, tool-call, build, and API cost discipline.
+- [`docs/13-agent-runtime-observability-and-cost-standard.md`](docs/13-agent-runtime-observability-and-cost-standard.md) — sandboxing, protected previews, long-running agents, observability, cost boundaries, human approval, and automation safety.
+
 ## Build path
 
 ```mermaid
@@ -81,10 +89,11 @@ flowchart LR
 | Background jobs | Queues |
 | Long-running business flow | Workflows |
 | Shared live state | Durable Objects |
-| AI features | Workers AI / AI Gateway |
+| Heavy/long-running compute | Containers or another suitable compute service |
+| AI features | Workers AI / AI Gateway or another approved provider |
 | Form protection | Turnstile |
 | Internal access | Access |
-| Observability | Workers Observability / Logs / Analytics |
+| Observability | Workers Observability / Logs / Traces / Analytics |
 
 ## What you can build with it
 
@@ -105,16 +114,17 @@ flowchart LR
 
 ```text
 Read BUILD-STATUS.md, WORKSPACE-STATUS.md, AGENTS.md, and the closest architecture guide.
-Start from the real problem.
+Start from the real problem and reuse existing decisions before asking repeated questions.
 Separate confirmed facts, assumptions, and unanswered questions.
 Consider build, buy, automate, process improvement, and do-not-build options.
-Create a project only after an accepted blueprint.
-Keep secrets out of source code and verify every important decision.
+Choose the smallest suitable runtime and the least expensive reliable intelligence level.
+Use isolated/disposable environments for risky agent work where practical.
+Keep secrets out of source code and verify every important decision with evidence.
 ```
 
 ## Audit before deployment
 
-Review environment variables, bindings, uploads, secrets, route safety, deployment target, security gaps, monitoring gaps, and rollback readiness. Start with [`docs/production-readiness-checklist.md`](docs/production-readiness-checklist.md) and [`docs/rollback-checklist.md`](docs/rollback-checklist.md).
+Review environment variables, bindings, uploads, secrets, route safety, deployment target, security gaps, monitoring gaps, cost boundaries, and rollback readiness. Use the relevant production-readiness and operational checklists available in the repository.
 
 ## Repository map
 
@@ -125,7 +135,7 @@ Review environment variables, bindings, uploads, secrets, route safety, deployme
 ├── START-HERE.md               # Beginner path
 ├── AGENTS.md                   # Engineering and AI-agent rules
 ├── ROADMAP.md                  # Roadmap
-├── docs/                       # Learning guides, principles, checklists
+├── docs/                       # Learning guides, principles, checklists, agent standards
 ├── catalog/                    # Cloudflare technical knowledge
 ├── architectures/              # Reference application designs
 ├── playbooks/                  # Project-specific implementation guides
@@ -141,10 +151,12 @@ Review environment variables, bindings, uploads, secrets, route safety, deployme
 - **Problem first:** understand the lived problem before proposing a product.
 - **Simple first:** start with the smallest working solution.
 - **Provider-neutral product:** choose infrastructure based on technical fit; do not imply affiliation.
-- **Production-aware:** think about security, data, deploys, and monitoring early.
+- **Production-aware:** think about security, data, deploys, monitoring, cost, and recovery early.
 - **Beginner-safe:** explain decisions in plain language before deep engineering detail.
 - **AI-ready:** write instructions clearly enough for coding agents to follow.
-- **Freshness-aware:** verify changing provider facts against official sources.
+- **Freshness-aware:** verify changing provider/platform facts against primary sources.
+- **Cost-aware:** treat model calls, browser sessions, CI, observability, storage, and long-running automation as operational costs.
+- **Human-controlled:** increase agent autonomy only as isolation, observability, reversibility, and trust increase.
 
 More principles: [`docs/09-project-principles.md`](docs/09-project-principles.md)
 
@@ -154,4 +166,4 @@ DeveloperB and the toolkit should be useful for real projects, justified, safe, 
 
 ## The promise
 
-> Help people move from real problems to build-ready products without wasting developer time, money, or AI effort.
+> Help people move from real problems to build-ready products without wasting developer time, money, AI effort, or operational trust.
