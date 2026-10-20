@@ -30,6 +30,12 @@ Maximum score: **20**.
 | 10–13 | Risky | Use staging or limited pilot only |
 | 0–9 | Not ready | Do not deploy to production |
 
+## Relationship to the 86-point quality policy
+
+The score is a **planning aid**, never a security certificate. Use [the capability-aware quality catalog](QUALITY-GATES.md) to check actual applicable controls. A single unresolved release-blocking item (for example, leaked production credentials, critical exploitable dependency risk, broken tenant isolation, unverified payment trust or missing webhook signatures) takes precedence over a high numeric total. Do not award `2 = verified` without evidence.
+
+Profiles are starting points, not automatic assumptions about product features. All applicable controls begin unverified; keep future-only controls as not applicable and reopen them as capabilities change.
+
 ## Mandatory production blockers
 
 A project cannot be production-ready when any of these are true:
