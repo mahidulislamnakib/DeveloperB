@@ -155,9 +155,7 @@ export type AppliedQualityControl = QualityControl & {
   evidence: null;
 };
 
-export function qualityChecklist(profile: string) {
-  if (!Object.prototype.hasOwnProperty.call(qualityProfiles, profile)) return null;
-  const capabilities: readonly QualityCapability[] = qualityProfiles[profile as QualityProfile];
+function buildQualityChecklist(profile: string, capabilities: readonly QualityCapability[]) {
   const applicable = (c: QualityControl) => c.requires.every(capability => capabilities.includes(capability));
   const checks: AppliedQualityControl[] = qualityControls.map(control => {
     const matches = applicable(control);
@@ -177,4 +175,15 @@ export function qualityChecklist(profile: string) {
     // No project results have been measured here: all applicable items start unverified.
     checks,
   };
+}
+
+/** Starter profile. Unknown profiles never silently choose a default. */
+export function qualityChecklist(profile: string) {
+  if (!Object.prototype.hasOwnProperty.call(qualityProfiles, profile)) return null;
+  return buildQualityChecklist(profile, qualityProfiles[profile as QualityProfile]);
+}
+
+/** Custom product capability set; no persisted audit results or assertions. */
+export function qualityChecklistForCapabilities(capabilities: readonly QualityCapability[]) {
+  return buildQualityChecklist("custom", [...new Set(capabilities)]);
 }
