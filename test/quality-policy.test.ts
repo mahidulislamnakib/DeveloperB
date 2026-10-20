@@ -38,6 +38,7 @@ describe("DeveloperB reusable quality policy", () => {
     expect(report?.checks.find(c => c.id === "S19")?.status).toBe("not-applicable");
     expect(report?.checks.find(c => c.id === "U20")?.status).toBe("unverified");
     expect(report?.checks.find(c => c.id === "S15")?.status).toBe("unverified");
+    expect(report?.checks.find(c => c.id === "G16")?.status).toBe("unverified");
   });
 
   it("activates tenant and auth controls for multi-tenant SaaS", () => {
