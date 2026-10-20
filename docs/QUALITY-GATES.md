@@ -63,9 +63,10 @@ When this branch is deployed to a protected preview, DeveloperB exposes:
 GET /api/quality/checklist?profile=portfolio
 GET /api/quality/checklist?profile=multi-tenant-saas
 GET /api/quality/checklist?profile=ecommerce
+GET /api/quality/checklist?capabilities=web-ui,public-api,secrets,user-data
 ```
 
-The JSON contains `policy`, `profile`, `capabilities`, `total`, `applicableCount`, and 86 individual items with `id`, `label`, `category`, `requires`, `severity`, `applicability`, `status`, and `evidence`. It contains **no project-specific findings or private values**. Unknown profiles get HTTP 400 with supported profiles. This is **not** an authenticated report writer, penetration-test scanner, Git-history scanner or secrets inventory.
+The JSON contains `policy`, `profile`, `capabilities`, `total`, `applicableCount`, and 86 individual items with `id`, `label`, `category`, `requires`, `severity`, `applicability`, `status`, and `evidence`. It contains **no project-specific findings or private values**. Unknown profiles or unsupported/conflicting capability inputs get HTTP 400. Custom capability lists let future products build their own reference selection without fabricating audit results. This is **not** an authenticated report writer, penetration-test scanner, Git-history scanner or secrets inventory.
 
 All applicable rules return `status: "unverified"` and `evidence: null`. Non-applicable controls remain present with `status: "not-applicable"`.
 
