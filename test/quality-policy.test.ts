@@ -91,7 +91,7 @@ describe("DeveloperB reusable quality policy", () => {
       "?capabilities=",
       "?capabilities=secrets&profile=portfolio",
     ]) {
-      const response = await SELF.fetch("https://developerb.test/api/quality/checklist" + query);
+      const response = await SELF.fetch(`https://developerb.test/api/quality/checklist${query}`);
       expect(response.status).toBe(400);
     }
   });
