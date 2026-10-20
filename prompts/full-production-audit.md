@@ -20,7 +20,16 @@ Project context:
 - Private uploads: [yes/no]
 - Target launch date: [date]
 
+Quality-policy baseline:
+- Read docs/QUALITY-GATES.md and src/quality-policy.ts if available.
+- Identify actual product capabilities first; select the relevant controls from all 86 reference checks.
+- Preserve inapplicable rules for future use, with a reason, rather than pretending they passed.
+- Attach evidence to applicable PASS claims; unknown answers remain UNVERIFIED.
+- If production dependency audit reveals critical/high advisories, explicitly block release pending reviewed remediation.
+- Do not invent authentication, tenancy, webhook, payment, AI API, upload or storage features to satisfy a generic checklist.
+
 Audit scope:
+1. Architecture and service choiceAudit scope:
 1. Architecture and service choice
 2. Environment variables, bindings, secrets, and deployment configuration
 3. Authentication, authorization, roles, admin access, and tenant isolation
