@@ -179,7 +179,7 @@ function buildQualityChecklist(profile: string, capabilities: readonly QualityCa
 
 /** Starter profile. Unknown profiles never silently choose a default. */
 export function qualityChecklist(profile: string) {
-  if (!Object.prototype.hasOwnProperty.call(qualityProfiles, profile)) return null;
+  if (!Object.hasOwn(qualityProfiles, profile)) return null;
   return buildQualityChecklist(profile, qualityProfiles[profile as QualityProfile]);
 }
 
