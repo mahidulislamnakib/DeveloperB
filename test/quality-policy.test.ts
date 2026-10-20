@@ -71,6 +71,31 @@ describe("DeveloperB reusable quality policy", () => {
     expect(data.data.checks.every(x => x.status !== "pass" && x.evidence === null)).toBe(true);
   });
 
+  it("allows future projects to select their own supported capabilities", async () => {
+    const response = await SELF.fetch(
+      "https://developerb.test/api/quality/checklist?capabilities=web-ui,public-api,secrets,user-data",
+    );
+    expect(response.status).toBe(200);
+    const result = (await response.json()) as {
+      data: { profile: string; capabilities: string[]; checks: Array<{ id: string; status: string }> };
+    };
+    expect(result.data.profile).toBe("custom");
+    expect(result.data.capabilities).toContain("user-data");
+    expect(result.data.checks.find(c => c.id === "G16")?.status).toBe("unverified");
+    expect(result.data.checks.find(c => c.id === "S01")?.status).toBe("not-applicable");
+  });
+
+  it("rejects invalid and conflicting capability selections", async () => {
+    for (const query of [
+      "?capabilities=web-ui,not-real",
+      "?capabilities=",
+      "?capabilities=secrets&profile=portfolio",
+    ]) {
+      const response = await SELF.fetch("https://developerb.test/api/quality/checklist" + query);
+      expect(response.status).toBe(400);
+    }
+  });
+
   it("returns a safe, actionable error for unsupported API profiles", async () => {
     const response = await SELF.fetch("https://developerb.test/api/quality/checklist?profile=unknown");
     expect(response.status).toBe(400);
