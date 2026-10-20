@@ -43,8 +43,8 @@ These are *features*, not job titles. A brochure/portfolio usually has **no tena
 
 | Profile | Typical starting capabilities | Note |
 | --- | --- | --- |
-| `portfolio` | Web UI, public API, secrets | Works for personal sites with a contact form; no assumed auth or RLS |
-| `public-website` | Web UI, public API, secrets | Does not automatically require admin, uploads or payments |
+| `portfolio` | Web UI, public API, secrets, user data | Contact forms collect visitor information; no assumed auth or RLS |
+| `public-website` | Web UI, public API, secrets, user data | Contact forms collect visitor information; admin, uploads and payments are not assumed |
 | `api-service` | Public API, integrations, secrets | No web UI unless one exists |
 | `ai-chatbot` | Web UI, public API, AI, paid API, secrets, user data | API spending and user-data logging are relevant |
 | `multi-tenant-saas` | UI, API, auth, tenant DB, admin, secrets, user data | Auth/IDOR/tenant isolation are release-critical |
