@@ -121,8 +121,8 @@ const rows: Record<QualityCategory, readonly RuleRow[]> = {
 };
 
 export const qualityProfiles = {
-  portfolio: ["web-ui", "public-api", "secrets"],
-  "public-website": ["web-ui", "public-api", "secrets"],
+  portfolio: ["web-ui", "public-api", "secrets", "user-data"],
+  "public-website": ["web-ui", "public-api", "secrets", "user-data"],
   "api-service": ["public-api", "secrets", "integrations"],
   "ai-chatbot": ["web-ui", "public-api", "ai", "paid-api", "secrets", "user-data"],
   "multi-tenant-saas": ["web-ui", "public-api", "auth", "multi-tenant", "database", "admin", "secrets", "user-data"],
