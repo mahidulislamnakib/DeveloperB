@@ -4,6 +4,10 @@ Use this checklist before launching a Cloudflare-first application to real users
 
 > This is a practical release checklist, not a guarantee of security, availability, legal compliance, or provider-specific compliance.
 
+## Reference-quality checklist
+
+Use [DeveloperB's capability-aware 86-control library](QUALITY-GATES.md) before evaluating this checklist. It preserves all five original categories across future product types. Mark requirements **Not applicable** only with a reason; never treat that as a passing test. Record evidence for actual passes. Critical/high advisories and other release blockers override checklist scores.
+
 ## How to use it
 
 1. Review every section before production launch.
