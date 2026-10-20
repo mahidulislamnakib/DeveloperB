@@ -1,4 +1,5 @@
 import { projectCoach, type ProjectCoachEnv } from "./project-coach";
+import { qualityCapabilities, qualityChecklist, qualityChecklistForCapabilities, qualityProfiles, type QualityCapability } from "./quality-policy";
 
 interface Env extends ProjectCoachEnv {
   ASSETS: Fetcher;
@@ -158,6 +159,34 @@ export default {
 
     if (request.method === "GET" && url.pathname === "/api/workspace") {
       return json({ data: workspace });
+    }
+
+    if (request.method === "GET" && url.pathname === "/api/quality/checklist") {
+      const rawCapabilities = url.searchParams.get("capabilities");
+      if (rawCapabilities !== null) {
+        if (url.searchParams.has("profile") || rawCapabilities.length > 256) {
+          return apiError("INVALID_QUALITY_CAPABILITIES", "Use either a profile or a supported capability list.", 400);
+        }
+        const selected = rawCapabilities.split(",").map(s => s.trim()).filter(Boolean);
+        if (!selected.length || selected.length > qualityCapabilities.length ||
+          selected.some(capability => !qualityCapabilities.includes(capability as QualityCapability))) {
+          return apiError("INVALID_QUALITY_CAPABILITIES", "Choose valid DeveloperB quality capabilities.", 400);
+        }
+        return json({ data: qualityChecklistForCapabilities(selected as QualityCapability[]) });
+      }
+      const profile = url.searchParams.get("profile") || "public-website";
+      const checklist = qualityChecklist(profile);
+      if (!checklist) {
+        return json({
+          error: {
+            code: "INVALID_QUALITY_PROFILE",
+            message: "Choose a supported quality profile.",
+            supportedProfiles: Object.keys(qualityProfiles),
+          },
+        }, 400);
+      }
+      // Reference catalog only: no customer/project audit results are inferred.
+      return json({ data: checklist });
     }
 
     if (request.method === "POST" && url.pathname === "/api/ai/coach") {

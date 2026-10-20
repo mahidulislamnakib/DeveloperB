@@ -40,6 +40,22 @@ Maintain `BUILD-STATUS.md` using [`templates/agent-build-status.md`](templates/a
 - Before migration, record user journey, ownership, first queries, indexes, lifecycle, server-controlled values, and verification plan.
 - End each session with decisions, commands/results, unverified items, risks, and the next smallest task.
 
+## Capability-aware quality gates (mandatory)
+
+DeveloperB retains **all 86** controls from the user's five checklists, covering public-site QA, application security, API-key hygiene, coding-agent discipline, and common AI-generated-code failures. Read [`docs/QUALITY-GATES.md`](docs/QUALITY-GATES.md) and the canonical [`src/quality-policy.ts`](src/quality-policy.ts).
+
+- Classify the real product capabilities **before** deciding what applies: UI, API, identity, tenant DB, admin, files, webhooks, paid APIs, AI, payments, secrets and personal data.
+- **Do not mark N/A controls as fixed.** Keep them in the reusable catalog for projects that will have those capabilities. Do not invent auth, RLS, payments or webhook endpoints just to satisfy generic lists.
+- Applicable controls start **unverified**, not green. Attach dated evidence (test logs, screenshots of authentic code/app output, CI, config observation, reviewer) before claiming a pass.
+- A release-blocking failure is not overridden by a high summary score. A critical/high dependency advisory must be remediated or reviewed with recorded mitigation and approval, never silently ignored.
+- Require server-side validation, appropriate authorization, least privilege, web/API abuse protection, context-aware escaping and real negative tests.
+- Scan active code, commit history and public artifacts for leaked secrets using appropriate tools; never paste actual keys in reports or chat.
+- AI agents must not fabricate packages, customer data, dashboards, logos, screenshots, results, tests or success states. Original customer/project visuals are the source of truth.
+- "No new packages" means **no unreviewed packages**; "files under 300 lines" is guidance to keep modules cohesive, not a forced numerical gate.
+- Tests and code changes are reviewed on a branch. Get approval before high-impact auth, production data, DNS, financial or deployment actions.
+
+Read [`docs/production-readiness-checklist.md`](docs/production-readiness-checklist.md) before release. The read-only `GET /api/quality/checklist?profile=...` returns reference controls **without assessing a customer project**.
+
 ## Cloudflare-friendly service selection
 
 - **Workers:** APIs, edge logic, webhooks, scheduled tasks, lightweight backend work.

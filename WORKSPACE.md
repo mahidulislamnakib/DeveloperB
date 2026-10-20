@@ -19,6 +19,10 @@ Real problem
 
 A project is created only after a blueprint is accepted.
 
+## Reusable quality policy
+
+DeveloperB keeps 86 universal and feature-specific controls in [`docs/QUALITY-GATES.md`](docs/QUALITY-GATES.md). A read-only `/api/quality/checklist?profile=portfolio` reference endpoint is available in the review branch, with other product profiles described in the guide. The API never stores or asserts a project's test results. Private evaluated records must wait for protected identity, membership checks, audit events and the approved D1 control plane.
+
 ## Current routes
 
 - `/` — DeveloperB workspace

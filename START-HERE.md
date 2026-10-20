@@ -25,6 +25,12 @@ DeveloperB can help compare six paths:
 
 Only create a project after a solution and blueprint are clear.
 
+## Choose checks based on the product
+
+Before starting code, choose the closest profile in [the 86-point quality policy](docs/QUALITY-GATES.md) and identify the capabilities the project actually has. A portfolio without accounts does not need row-level security, but a multi-tenant SaaS does. A public contact form requires validation and abuse protection, not fake user authentication.
+
+The shared source catalog remains available for **future** products. Unverified checks stay unverified until tested; the checklist graphic's checkmarks are not evidence.
+
 ## Cloudflare-friendly toolkit
 
 Use Cloudflare services when they fit the technical need:
