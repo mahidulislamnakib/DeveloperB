@@ -1,4 +1,5 @@
 import { projectCoach, type ProjectCoachEnv } from "./project-coach";
+import { qualityChecklist, qualityProfiles } from "./quality-policy";
 
 interface Env extends ProjectCoachEnv {
   ASSETS: Fetcher;
@@ -158,6 +159,22 @@ export default {
 
     if (request.method === "GET" && url.pathname === "/api/workspace") {
       return json({ data: workspace });
+    }
+
+    if (request.method === "GET" && url.pathname === "/api/quality/checklist") {
+      const profile = url.searchParams.get("profile") || "public-website";
+      const checklist = qualityChecklist(profile);
+      if (!checklist) {
+        return json({
+          error: {
+            code: "INVALID_QUALITY_PROFILE",
+            message: "Choose a supported quality profile.",
+            supportedProfiles: Object.keys(qualityProfiles),
+          },
+        }, 400);
+      }
+      // Reference catalog only: no customer/project audit results are inferred.
+      return json({ data: checklist });
     }
 
     if (request.method === "POST" && url.pathname === "/api/ai/coach") {
