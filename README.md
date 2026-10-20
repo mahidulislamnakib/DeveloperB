@@ -39,6 +39,18 @@ DeveloperB does not assume that a custom product is always the answer. It consid
 
 Start the private workspace at [`WORKSPACE.md`](WORKSPACE.md). Product architecture, data model, and build order are in [`private-alpha/README.md`](private-alpha/README.md).
 
+## Reusable quality and security gates
+
+DeveloperB now retains **86 review controls** from five practical checklists: 20 website UX, 19 application-security, 16 API-key hygiene, 15 coding-agent practices and 16 AI-generated-code anti-patterns. **Not every control applies to every project**—DeveloperB selects controls based on actual product capabilities, preserving non-applicable controls for future projects.
+
+- [Read the reusable policy and applicability matrix](docs/QUALITY-GATES.md)
+- [Read the canonical 86-control catalog](src/quality-policy.ts)
+- [Read Claude's project instructions](CLAUDE.md) and [general agent rules](AGENTS.md)
+
+When deployed, the safe, read-only `GET /api/quality/checklist?profile=portfolio` endpoint returns the 86 controls with applicable entries **unverified** by default; it never invents passed security audits. Other profiles include multi-tenant SaaS, marketplaces, e-commerce, AI chatbots, APIs and CMS platforms.
+
+This is a project-planning and quality-reference system, **not** a penetration-test product or automatic certificate. Real evidence, access control, tests, manual review and deployment checks remain essential.
+
 ## Cloudflare-friendly toolkit
 
 This repository includes practical guidance for building and operating applications with Cloudflare services when they fit the technical need.
